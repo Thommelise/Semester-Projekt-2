@@ -1,3 +1,5 @@
+package Restaurant;
+
 public class Bestilling {
 
     private String drink;

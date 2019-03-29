@@ -1,3 +1,5 @@
+package Medarbejder;
+
 public class Ansat {
 
     private String navn;

@@ -1,3 +1,5 @@
+package Varelager;
+
 import sun.security.provider.ConfigFile;
 
 import java.sql.*;

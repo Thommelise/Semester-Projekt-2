@@ -1,3 +1,5 @@
+package Varelager;
+
 public class Spild {
 
     private String varenavn;
@@ -10,7 +12,7 @@ public class Spild {
 
     @Override
     public String toString() {
-        return "Spild" +
+        return "Varelager.Spild" +
                 "varenavn =" + varenavn + '\'' +
                 ", antal =" + antal;
     }

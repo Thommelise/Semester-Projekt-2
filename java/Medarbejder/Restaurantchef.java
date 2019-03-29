@@ -1,8 +1,11 @@
-import sun.security.provider.ConfigFile;
+package Medarbejder;
+
+import Handler.DatabaseHandler;
+import Varelager.Spild;
 
 import java.util.ArrayList;
 
-public class Restaurantchef extends Ansat{
+public class Restaurantchef extends Ansat {
 
 
     public Restaurantchef(String navn, int cpr, int id, String stilling) {

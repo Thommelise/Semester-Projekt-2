@@ -1,4 +1,6 @@
-public class Kok extends Ansat{
+package Medarbejder;
+
+public class Kok extends Ansat {
 
     private String varenavn;
     private int antal;

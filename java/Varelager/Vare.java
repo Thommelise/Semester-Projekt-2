@@ -1,3 +1,5 @@
+package Varelager;
+
 public class Vare {
 
     private String varenavn;

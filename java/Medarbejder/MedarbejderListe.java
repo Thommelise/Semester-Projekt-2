@@ -1,3 +1,5 @@
+package Medarbejder;
+
 import java.util.ArrayList;
 
 public class MedarbejderListe {
