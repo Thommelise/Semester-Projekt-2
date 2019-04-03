@@ -6,7 +6,7 @@ public class Kok extends Ansat {
     private int antal;
 
 
-    public Kok(String navn, int cpr, int id, String stilling, String varenavn, int antal) {
+    public Kok(String navn, String cpr, int id, String stilling, String varenavn, int antal) {
         super(navn, cpr, id, stilling);
         this.varenavn = varenavn;
         this.antal = antal;

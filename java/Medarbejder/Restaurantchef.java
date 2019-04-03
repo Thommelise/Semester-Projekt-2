@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Restaurantchef extends Ansat {
 
 
-    public Restaurantchef(String navn, int cpr, int id, String stilling) {
+    public Restaurantchef(String navn, String cpr, int id, String stilling) {
         super(navn, cpr, id, stilling);
     }
 

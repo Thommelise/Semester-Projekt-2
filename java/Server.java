@@ -1,4 +1,5 @@
-import java.io.IOException;
+import Handler.ServerHandler;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -20,7 +21,7 @@ public class Server {
                 String o = (String)inFromClient.readObject();
                 System.out.println("recieved: " + o);
 
-                String answer = o.toUpperCase();
+                String answer = ServerHandler.toUpperCase(o);
 
                 ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
                 outToClient.writeObject(answer);
