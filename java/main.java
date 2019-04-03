@@ -1,6 +1,8 @@
 import Handler.DatabaseHandler;
 import Medarbejder.Restaurantchef;
 import Restaurant.Ret;
+import Varelager.Spild;
+import Varelager.Vare;
 
 public class main {
 
@@ -10,7 +12,9 @@ public class main {
         System.out.println(restaurantchef.seSpild());
 
         Ret retter = new Ret();
-        retter.setVarenavn("burgerboller");
+        retter.setVarenavn("burger bøf");
         System.out.println(DatabaseHandler.getVare(retter));
+        System.out.println(DatabaseHandler.registrereSpild(new Vare("Kylling",20,"kg",100),20));
+        System.out.println(DatabaseHandler.registrereBestilteVare(new Vare("burger bøf",20,"kg",150),10));
     }
 }

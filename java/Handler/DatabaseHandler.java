@@ -18,4 +18,14 @@ public class DatabaseHandler {
         Lager lager = new Lager();
         return lager.hentVare(ret);
     }
+
+    public static ArrayList<Spild> registrereSpild(Vare vare, int mængde) {
+        Lager lager = new Lager();
+        return lager.registrereSpild(vare, mængde);
+    }
+
+    public static ArrayList<Vare> registrereBestilteVare(Vare vare, int mængde) {
+        Lager lager = new Lager();
+        return lager.registrereBestilteVare(vare, mængde);
+    }
 }

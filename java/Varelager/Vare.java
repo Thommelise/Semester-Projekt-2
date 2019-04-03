@@ -14,6 +14,10 @@ public class Vare {
         this.pris = pris;
     }
 
+    public String getVarenavn() {
+        return varenavn;
+    }
+
     @Override
     public String toString() {
         return "Vare" +
