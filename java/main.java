@@ -1,6 +1,7 @@
 import Handler.DatabaseHandler;
 import Handler.MedarbejderHandler;
 import Medarbejder.Restaurantchef;
+import Restaurant.Bestilling;
 import Restaurant.Ret;
 import Varelager.Spild;
 import Varelager.Vare;
@@ -22,6 +23,12 @@ public class main {
 
         /*MedarbejderHandler.opretMedarbejder("Oscar", "1020304050", 3, "Restauranchef");*/
         /*MedarbejderHandler.sletMedarbejder("1020304050");*/
-        System.out.println(MedarbejderHandler.seEnkelMedarbejder("1010101010"));
+        /*System.out.println(MedarbejderHandler.seEnkelMedarbejder("1020304050"));*/
+
+        Ret ret = new Ret("burger");
+        System.out.println(ret.vareObjekt());
+
+        Bestilling bestilling = new Bestilling("burger");
+        bestilling.lavBestilling();
     }
 }

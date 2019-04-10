@@ -14,9 +14,9 @@ public class DatabaseHandler {
         return lager.getSpild();
     }
 
-    public static ArrayList<Vare> getVare(Ret ret) {
+    public static ArrayList<Vare> getVare(Vare vare) {
         Lager lager = new Lager();
-        return lager.hentVare(ret);
+        return lager.hentVare(vare);
     }
 
     public static ArrayList<Spild> registrereSpild(Vare vare, int mængde) {

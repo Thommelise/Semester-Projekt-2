@@ -42,8 +42,8 @@ public class Lager {
         return spilds;
     }
 
-    public ArrayList hentVare(Ret ret) {
-        String forspørgelse = ret.getVarenavn();
+    public ArrayList hentVare(Vare fjernes) {
+        String forspørgelse = fjernes.getVarenavn();
         Connection c = null;
         Statement stmt = null;
         try {
