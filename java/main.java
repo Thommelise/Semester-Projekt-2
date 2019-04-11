@@ -25,10 +25,10 @@ public class main {
         /*MedarbejderHandler.sletMedarbejder("1020304050");*/
         /*System.out.println(MedarbejderHandler.seEnkelMedarbejder("1020304050"));*/
 
-        Ret ret = new Ret("burger");
-        System.out.println(ret.vareObjekt());
+        /*Ret ret = new Ret("burger");
+        System.out.println(ret.vareObjekt());*/
 
-        Bestilling bestilling = new Bestilling("burger");
-        bestilling.lavBestilling();
+        Vare vare = new Vare("testVare",3,"kasse",7);
+        DatabaseHandler.sletVare(vare);
     }
 }

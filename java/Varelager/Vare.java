@@ -18,6 +18,18 @@ public class Vare {
         return varenavn;
     }
 
+    public int getAntal() {
+        return antal;
+    }
+
+    public String getEnhed() {
+        return enhed;
+    }
+
+    public int getPris() {
+        return pris;
+    }
+
     @Override
     public String toString() {
         return "Vare" +

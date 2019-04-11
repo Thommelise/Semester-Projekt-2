@@ -147,4 +147,42 @@ public class Lager {
         }
         return varer;
     }
+
+    public void opretVare(Vare vare) {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+                    stmt = c.createStatement();
+                    String sql = "insert into \"varelager\".vare values ('"+vare.getVarenavn()+"','"+vare.getAntal()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
+                    stmt.executeUpdate(sql);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sletVare(Vare vare) {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+            stmt = c.createStatement();
+            String sql = "delete from \"varelager\".vare where varenavn = '"+vare.getVarenavn()+"';";
+            stmt.executeUpdate(sql);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

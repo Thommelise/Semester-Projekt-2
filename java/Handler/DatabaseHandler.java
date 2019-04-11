@@ -28,4 +28,14 @@ public class DatabaseHandler {
         Lager lager = new Lager();
         return lager.registrereBestilteVare(vare, mængde);
     }
+
+    public static void opretVare(Vare vare) {
+        Lager lager = new Lager();
+        lager.opretVare(vare);
+    }
+
+    public static void sletVare(Vare vare) {
+        Lager lager = new Lager();
+        lager.sletVare(vare);
+    }
 }
