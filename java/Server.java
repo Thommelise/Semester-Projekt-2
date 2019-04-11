@@ -1,6 +1,3 @@
-import Handler.ServerHandler;
-import Restaurant.Bestilling;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -26,7 +23,7 @@ public class Server {
                 if (o.equals("bestil")){
                     outToClient.writeObject("What item?");
                     o = (String)inFromClient.readObject();
-                    Bestilling bestilling = new Bestilling(o);
+                    restaurant.Bestilling bestilling = new restaurant.Bestilling(o);
                     bestilling.lavBestilling();
                 }
 
