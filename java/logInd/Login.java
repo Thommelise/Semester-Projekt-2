@@ -1,4 +1,4 @@
-package LogInd;
+package logInd;
 
 import java.sql.*;
 

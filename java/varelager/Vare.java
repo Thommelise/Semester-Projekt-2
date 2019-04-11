@@ -1,4 +1,4 @@
-package Varelager;
+package varelager;
 
 public class Vare {
 

@@ -40,7 +40,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medarbejder id">
+            <Text fill="#09b903" layoutX="65.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="medarbejder id">
                <font>
                   <Font size="20.0" />
                </font>

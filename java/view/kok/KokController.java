@@ -1,14 +1,8 @@
-package GUI.Kok;
+package view.kok;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.net.URL;
 
 public class KokController {
 

@@ -1,4 +1,4 @@
-import Handler.ServerHandler;
+import handler.ServerHandler;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

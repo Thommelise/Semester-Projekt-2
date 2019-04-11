@@ -1,4 +1,4 @@
-package Medarbejder;
+package medarbejder;
 
 public class Personale extends Ansat {
 
