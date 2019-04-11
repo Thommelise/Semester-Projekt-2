@@ -1,9 +1,9 @@
-package Handler;
+package handler;
 
-import Restaurant.Ret;
-import Varelager.Lager;
-import Varelager.Spild;
-import Varelager.Vare;
+
+import varelager.Lager;
+import varelager.Spild;
+import varelager.Vare;
 
 import java.util.ArrayList;
 

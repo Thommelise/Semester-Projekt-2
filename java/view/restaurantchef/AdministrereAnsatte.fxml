@@ -20,7 +20,7 @@
                </font>
             </Text>
             <TextField layoutX="90.0" layoutY="209.0" prefHeight="31.0" prefWidth="150.0" />
-            <Text fill="#09b903" layoutX="108.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medarbejder id" wrappingWidth="131.11279296875" />
+            <Text fill="#09b903" layoutX="108.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="medarbejder id" wrappingWidth="131.11279296875" />
          </children>
       </Pane>
    </center>

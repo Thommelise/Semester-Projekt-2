@@ -1,7 +1,5 @@
-package Varelager;
+package varelager;
 
-import Restaurant.Ret;
-import sun.security.provider.ConfigFile;
 import java.sql.*;
 import java.util.ArrayList;
 

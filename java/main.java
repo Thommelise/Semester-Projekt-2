@@ -1,10 +1,6 @@
-import Handler.DatabaseHandler;
-import Handler.MedarbejderHandler;
-import Medarbejder.Restaurantchef;
-import Restaurant.Bestilling;
-import Restaurant.Ret;
-import Varelager.Spild;
-import Varelager.Vare;
+import handler.DatabaseHandler;
+import medarbejder.Restaurantchef;
+import varelager.Vare;
 
 public class main {
 

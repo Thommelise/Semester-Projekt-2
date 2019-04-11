@@ -1,7 +1,7 @@
-package Restaurant;
+package restaurant;
 
-import Handler.DatabaseHandler;
-import Varelager.Vare;
+import handler.DatabaseHandler;
+import varelager.Vare;
 
 import java.util.ArrayList;
 
