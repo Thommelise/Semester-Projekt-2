@@ -3,9 +3,12 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
+import static javafx.application.Application.launch;
+
 public class Client {
 
     public static void main(String[] args) {
+
         Scanner keyboard = new Scanner(System.in);
         try {
             Socket socket = new Socket("localhost", 2910);

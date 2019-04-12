@@ -10,16 +10,16 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
           <Button mnemonicParsing="false" text="Bestil mad" />
-            <Button fx:id="logud" layoutX="675.0" layoutY="15.0" mnemonicParsing="false" text="Log ud" />
+            <Button fx:id="logu" layoutX="675.0" layoutY="15.0" mnemonicParsing="false" text="Log ud" />
         </buttons>
       </ButtonBar>
    </bottom>
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="spild" layoutX="458.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Spild" textFill="#09b903" />
-            <Button fx:id="bestilleVare" layoutX="301.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Bestille vare" textFill="#09b903" />
-            <Button fx:id="registrerMad" layoutX="140.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Registere Mad" textFill="#09b903" />
+            <Button fx:id="spil" layoutX="458.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Spild" textFill="#09b903" />
+            <Button fx:id="bestilleVar" layoutX="301.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Bestille vare" textFill="#09b903" />
+            <Button fx:id="registrerMa" layoutX="140.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Registere Mad" textFill="#09b903" />
          </children>
       </Pane>
    </center>

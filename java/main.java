@@ -2,9 +2,12 @@ import handler.DatabaseHandler;
 import medarbejder.Restaurantchef;
 import varelager.Vare;
 
+import static javafx.application.Application.launch;
+
 public class main {
 
     public static void main(String[] args) {
+        launch();
         Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
 
         /*System.out.println(restaurantchef.seSpild());
