@@ -1,24 +1,26 @@
 package view.kok;
-
+import control.UI;
 import javafx.fxml.FXML;
-
-import java.awt.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.BorderPane;
+import java.io.IOException;
+import java.net.URL;
 
 public class KokController {
+UI ui = new UI();
 
     @FXML
-    private Button registrerMad;
+    void  SpildBnt (javafx.event.ActionEvent event) {
 
-    @FXML
-    private Button spild;
+        try{
 
-    @FXML
-    private Button bestilleVare;
-
-    @FXML
-    private Button bestilleMad;
-
-    @FXML
-    private Button logud;
+            URL spildBnt = getClass().getResource("RegistererSpild.fxml");
+            BorderPane spild = FXMLLoader.load(spildBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(spild);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
 
 }

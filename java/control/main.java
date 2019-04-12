@@ -1,3 +1,5 @@
+package control;
+
 import handler.DatabaseHandler;
 import medarbejder.Restaurantchef;
 import varelager.Vare;

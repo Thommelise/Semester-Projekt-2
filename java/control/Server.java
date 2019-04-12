@@ -1,3 +1,5 @@
+package control;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -13,7 +15,7 @@ public class Server {
 
             while (true) {
                 Socket socket = welcomeSocket.accept();
-                System.out.println("Client connected");
+                System.out.println("control.Client connected");
 
                 ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
                 ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
