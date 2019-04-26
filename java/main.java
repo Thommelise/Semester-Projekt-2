@@ -7,9 +7,9 @@ public class main {
     public static void main(String[] args) {
         Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
 
-        /*System.out.println(restaurantchef.seSpild());
+        System.out.println(restaurantchef.seSpild());
 
-        Ret retter = new Ret();
+        /*Ret retter = new Ret();
         retter.setVarenavn("burger bøf");
         System.out.println(DatabaseHandler.getVare(retter));
         System.out.println(DatabaseHandler.registrereSpild(new Vare("Kylling",20,"kg",100),20));
