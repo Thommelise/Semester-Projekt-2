@@ -17,7 +17,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="spild" layoutX="458.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Spild" textFill="#09b903" />
+            <Button fx:id="spild" layoutX="458.0" layoutY="193.0" mnemonicParsing="false" onAction="#SpildBnt" onMouseClicked="#SpildBnt" prefHeight="52.0" prefWidth="138.0" text="Spild" textFill="#09b903" />
             <Button fx:id="bestilleVare" layoutX="301.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Bestille vare" textFill="#09b903" />
             <Button fx:id="registrerMad" layoutX="140.0" layoutY="193.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Registere Mad" textFill="#09b903" />
          </children>

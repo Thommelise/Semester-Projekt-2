@@ -1,4 +1,4 @@
-import handler.ServerHandler;
+package control;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,16 +15,20 @@ public class Server {
 
             while (true) {
                 Socket socket = welcomeSocket.accept();
-                System.out.println("Client connected");
+                System.out.println("control.Client connected");
 
                 ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
+                ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
                 String o = (String)inFromClient.readObject();
                 System.out.println("recieved: " + o);
 
-                String answer = ServerHandler.toUpperCase(o);
+                if (o.equals("bestil")){
+                    outToClient.writeObject("What item?");
+                    o = (String)inFromClient.readObject();
+                    restaurant.Bestilling bestilling = new restaurant.Bestilling(o);
+                    bestilling.lavBestilling();
+                }
 
-                ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
-                outToClient.writeObject(answer);
             }
         } catch (Exception e) {
 
