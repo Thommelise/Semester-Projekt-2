@@ -7,7 +7,7 @@ public class MedarbejderListe {
 
 
     private ArrayList<Ansat> medarbejder = new ArrayList<Ansat>();
-
+    /**/
     public MedarbejderListe() {
 
     }
