@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.personale.bestilleHovedRetController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="90.0" layoutY="91.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Spareribs" />
+            <Button layoutX="90.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Kyllingebryst" />
+            <Button layoutX="509.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Kyllinge spyd" />
+            <Button layoutX="301.0" layoutY="91.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Hakkebøf" />
+            <Button layoutX="509.0" layoutY="91.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Pizza" />
+            <Button layoutX="301.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Burger" />
+         </children></Pane>
+   </center>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09B903;" BorderPane.alignment="CENTER">
+        <buttons>
+            <Button fx:id="drikkevare" mnemonicParsing="false" onAction="#bestilleDringBnt" onMouseClicked="#bestilleDringBnt" text="Drikke Vare" />
+            <Button fx:id="tilbehørbnt" mnemonicParsing="false" onAction="#bestilleTilbehørBnt" onMouseClicked="#bestilleTilbehørBnt" text="Tilbehør" />
+            <Button mnemonicParsing="false" onAction="#checkoutBnt" onMouseClicked="#checkoutBnt" text="Check Out" />
+          <Button fx:id="Logud" mnemonicParsing="false" onAction="#logudBnt" onMouseClicked="#logudBnt" text="Log ud" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+</BorderPane>

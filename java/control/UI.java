@@ -26,11 +26,11 @@ public class UI extends Application {
     public void start(Stage primaryStage) throws IOException {
 
 
-        URL kokUrl = getClass().getResource("/view/kok/Kok.fxml");
-        BorderPane kokSceen = FXMLLoader.load(kokUrl);
+        URL loginUrl = getClass().getResource("/view/personale/Login.fxml");
+        BorderPane loginSceen = FXMLLoader.load(loginUrl);
 
 
-        root.setCenter(kokSceen);
+        root.setCenter(loginSceen);
 
 
         Scene scene = new Scene(root, 740, 520);

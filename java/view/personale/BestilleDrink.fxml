@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.personale.bestilleDrinkController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="135.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Pepsi Max" />
+            <Button layoutX="485.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Mirinda lemon" />
+            <Button layoutX="301.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Faxe light" />
+            <Button layoutX="135.0" layoutY="104.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Pepsi" />
+            <Button layoutX="301.0" layoutY="104.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Faxe" />
+            <Button layoutX="485.0" layoutY="104.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Mirinda" />
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <ButtonBar prefHeight="47.0" prefWidth="740.0" style="-fx-background-color: #09B903;" BorderPane.alignment="CENTER">
+         <buttons>
+            <Button mnemonicParsing="false" onAction="#bestilleHovedretBnt" onMouseClicked="#bestilleHovedretBnt" text="Hovedret" />
+            <Button mnemonicParsing="false" onAction="#bestilleTilbehørBnt" onMouseClicked="#bestilleTilbehørBnt" text="Tilbehør" />
+            <Button mnemonicParsing="false" onAction="#checkoutBnt" onMouseClicked="#checkoutBnt" text="Check Out" />
+            <Button mnemonicParsing="false" onAction="#logudBnt" onMouseClicked="#logudBnt" text="Logud" />
+         </buttons>
+      </ButtonBar>
+   </bottom>
+</BorderPane>

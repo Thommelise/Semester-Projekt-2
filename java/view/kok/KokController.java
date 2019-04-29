@@ -10,7 +10,7 @@ public class KokController {
 UI ui = new UI();
 
     @FXML
-    void  SpildBnt (javafx.event.ActionEvent event) {
+    void SpildBnt (javafx.event.ActionEvent event) {
 
         try{
 
@@ -23,4 +23,45 @@ UI ui = new UI();
             e.printStackTrace();
         }}
 
+    @FXML
+    void bestilleVareBnt (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL bestilleVareBnt = getClass().getResource("RegistrereVare.fxml");
+            BorderPane bestilleVare = FXMLLoader.load(bestilleVareBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(bestilleVare);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
+
+    @FXML
+    void logudBnt (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL logudBnt = getClass().getResource("/view/personale/Login.fxml");
+            BorderPane loginSceen = FXMLLoader.load(logudBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(loginSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
+
+    @FXML
+    void BestilMad (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL bestilHovedret = getClass().getResource("/view/personale/BestilleHovedret.Fxml");
+            BorderPane hovedretSceen = FXMLLoader.load(bestilHovedret);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(hovedretSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
 }
