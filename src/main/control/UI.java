@@ -26,7 +26,7 @@ public class UI extends Application {
     public void start(Stage primaryStage) throws IOException {
 
 
-        URL loginUrl = getClass().getResource("/view/personale/Login.fxml");
+        URL loginUrl = getClass().getResource("/main/view/personale/Login.fxml");
         BorderPane loginSceen = FXMLLoader.load(loginUrl);
 
 

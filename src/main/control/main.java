@@ -1,5 +1,7 @@
 package main.control;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
 import main.handler.DatabaseHandler;
 import main.medarbejder.Restaurantchef;
 import main.varelager.Vare;
@@ -9,7 +11,7 @@ import static javafx.application.Application.launch;
 public class main {
 
     public static void main(String[] args) {
-        /*launch();*/
+        launch();
         Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
 
         System.out.println(restaurantchef.seSpild());
@@ -32,4 +34,5 @@ public class main {
         Vare vare = new Vare("testVare",3,"kasse",7);
         DatabaseHandler.getVare(vare);
     }
-}
+    }
+

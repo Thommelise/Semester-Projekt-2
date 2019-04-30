@@ -1,6 +1,6 @@
-package view.personale;
+package main.view.personale;
 
-import control.UI;
+import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
