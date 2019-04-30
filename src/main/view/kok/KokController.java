@@ -43,7 +43,7 @@ UI ui = new UI();
 
         try{
 
-            URL logudBnt = getClass().getResource("/view/personale/Login.fxml");
+            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
             BorderPane loginSceen = FXMLLoader.load(logudBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(loginSceen);

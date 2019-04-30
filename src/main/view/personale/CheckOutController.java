@@ -1,21 +1,33 @@
 package main.view.personale;
 
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+import main.handler.BestillingHandler;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class CheckOutController {
 
+    @FXML
+    private TextArea kvittering;
+
+    @FXML
+    void initialize(){
+        BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
+        kvittering.setText(bestillingHandler.getRet().toString());
+    }
+
       @FXML
     void bestilleDrinkBnt (javafx.event.ActionEvent event) {
 
         try{
 
-            URL bestilleDrinkBnt = getClass().getResource("/view/personale/BestilleDrink.fxml");
+            URL bestilleDrinkBnt = getClass().getResource("/main/view/personale/BestilleDrink.fxml");
             BorderPane bestilleDrinkSceen = FXMLLoader.load(bestilleDrinkBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(bestilleDrinkSceen);
@@ -29,7 +41,7 @@ public class CheckOutController {
 
         try{
 
-            URL bestilleTilbehørBnt = getClass().getResource("/view/personale/BestilleTilbehør.fxml");
+            URL bestilleTilbehørBnt = getClass().getResource("/main/view/personale/BestilleTilbehør.fxml");
             BorderPane bestilleTilbehørSceen = FXMLLoader.load(bestilleTilbehørBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(bestilleTilbehørSceen);
@@ -43,7 +55,7 @@ public class CheckOutController {
 
         try{
 
-            URL bestilleHovedretBnt = getClass().getResource("/view/personale/BestilleHovedret.fxml");
+            URL bestilleHovedretBnt = getClass().getResource("/main/view/personale/BestilleHovedret.fxml");
             BorderPane HovedretSceen = FXMLLoader.load(bestilleHovedretBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(HovedretSceen);
@@ -57,7 +69,7 @@ public class CheckOutController {
 
         try{
 
-            URL logudBnt = getClass().getResource("/view/personale/Login.fxml");
+            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
             BorderPane loginSceen = FXMLLoader.load(logudBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(loginSceen);

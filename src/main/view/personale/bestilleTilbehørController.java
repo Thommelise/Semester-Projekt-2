@@ -15,7 +15,7 @@ public class bestilleTilbehørController {
 
         try{
 
-            URL logudBnt = getClass().getResource("/view/personale/Login.fxml");
+            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
             BorderPane loginSceen = FXMLLoader.load(logudBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(loginSceen);
@@ -29,7 +29,7 @@ public class bestilleTilbehørController {
 
         try{
 
-            URL bestilleDrinkBnt = getClass().getResource("/view/personale/BestilleDrink.fxml");
+            URL bestilleDrinkBnt = getClass().getResource("/main/view/personale/BestilleDrink.fxml");
             BorderPane bestilleDrinkSceen = FXMLLoader.load(bestilleDrinkBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(bestilleDrinkSceen);
@@ -43,7 +43,7 @@ public class bestilleTilbehørController {
 
         try{
 
-            URL bestilleHovedretBnt = getClass().getResource("/view/personale/BestilleHovedret.fxml");
+            URL bestilleHovedretBnt = getClass().getResource("/main/view/personale/BestilleHovedret.fxml");
             BorderPane HovedretSceen = FXMLLoader.load(bestilleHovedretBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(HovedretSceen);
@@ -57,7 +57,7 @@ public class bestilleTilbehørController {
 
         try{
 
-            URL checkoutBnt = getClass().getResource("/view/personale/Checkout.fxml");
+            URL checkoutBnt = getClass().getResource("/main/view/personale/Checkout.fxml");
             BorderPane checkoutSceen = FXMLLoader.load(checkoutBnt);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(checkoutSceen);
