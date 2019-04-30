@@ -1,7 +1,7 @@
-package medarbejder;
+package main.medarbejder;
 
-import handler.DatabaseHandler;
-import varelager.Spild;
+import main.handler.DatabaseHandler;
+import main.varelager.Spild;
 
 import java.util.ArrayList;
 

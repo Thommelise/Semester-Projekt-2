@@ -1,4 +1,4 @@
-package handler;
+package main.handler;
 
 public class ServerHandler {
     public static String toUpperCase(String answer){

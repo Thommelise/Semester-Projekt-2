@@ -1,7 +1,7 @@
-package restaurant;
+package main.restaurant;
 
-import handler.DatabaseHandler;
-import varelager.Vare;
+import main.handler.DatabaseHandler;
+import main.varelager.Vare;
 
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class Bestilling {
     }
 
     public void lavBestilling() {
-        restaurant.Ret ret = new restaurant.Ret(hovederet);
+        Ret ret = new Ret(hovederet);
         ret.vareObjekt();
         ArrayList<Vare> alleVare = ret.vareObjekt();
         for (Vare currentVare: alleVare) {

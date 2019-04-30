@@ -1,4 +1,5 @@
-package varelager;
+package main.varelager;
+
 
 import java.sql.*;
 import java.util.ArrayList;

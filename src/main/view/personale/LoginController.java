@@ -1,4 +1,4 @@
-package view.personale;
+package main.view.personale;
 
 import control.UI;
 import javafx.event.ActionEvent;

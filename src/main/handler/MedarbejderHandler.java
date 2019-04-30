@@ -1,7 +1,7 @@
-package handler;
+package main.handler;
 
-import medarbejder.Ansat;
-import medarbejder.MedarbejderListe;
+import main.medarbejder.Ansat;
+import main.medarbejder.MedarbejderListe;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package restaurant;
+package main.restaurant;
 
-import varelager.Vare;
+import main.varelager.Vare;
 
 import java.sql.*;
 import java.util.ArrayList;
