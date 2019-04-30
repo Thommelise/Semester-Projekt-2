@@ -1,4 +1,4 @@
-package medarbejder;
+package main.medarbejder;
 
 import java.sql.*;
 import java.util.ArrayList;

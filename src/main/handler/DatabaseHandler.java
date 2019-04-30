@@ -1,9 +1,9 @@
-package handler;
+package main.handler;
 
 
-import varelager.Lager;
-import varelager.Spild;
-import varelager.Vare;
+import main.varelager.Lager;
+import main.varelager.Spild;
+import main.varelager.Vare;
 
 import java.util.ArrayList;
 

@@ -1,15 +1,15 @@
-package control;
+package main.control;
 
-import handler.DatabaseHandler;
-import medarbejder.Restaurantchef;
-import varelager.Vare;
+import main.handler.DatabaseHandler;
+import main.medarbejder.Restaurantchef;
+import main.varelager.Vare;
 
 import static javafx.application.Application.launch;
 
 public class main {
 
     public static void main(String[] args) {
-        launch();
+        /*launch();*/
         Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
 
         System.out.println(restaurantchef.seSpild());
@@ -30,6 +30,6 @@ public class main {
         System.out.println(ret.vareObjekt());*/
 
         Vare vare = new Vare("testVare",3,"kasse",7);
-        DatabaseHandler.sletVare(vare);
+        DatabaseHandler.getVare(vare);
     }
 }

@@ -1,4 +1,4 @@
-package medarbejder;
+package main.medarbejder;
 
 public class Kok extends Ansat {
 

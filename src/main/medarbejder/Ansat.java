@@ -1,5 +1,7 @@
-package medarbejder;
+package main.medarbejder;
 
+
+import java.util.Objects;
 
 public class Ansat {
 
@@ -33,6 +35,22 @@ public class Ansat {
 
     public String getStilling() {
         return stilling;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ansat ansat = (Ansat) o;
+        return id == ansat.id &&
+                Objects.equals(navn, ansat.navn) &&
+                Objects.equals(cpr, ansat.cpr) &&
+                Objects.equals(stilling, ansat.stilling);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(navn, cpr, id, stilling);
     }
 
     @Override

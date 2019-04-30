@@ -1,4 +1,4 @@
-package varelager;
+package main.varelager;
 
 import java.util.Objects;
 
@@ -28,7 +28,7 @@ public class Spild {
 
     @Override
     public String toString() {
-        return "varelager.Spild" +
+        return "Spild" +
                 "varenavn =" + varenavn + '\'' +
                 ", antal =" + antal;
     }

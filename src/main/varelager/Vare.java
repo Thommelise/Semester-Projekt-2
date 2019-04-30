@@ -1,4 +1,6 @@
-package varelager;
+package main.varelager;
+
+import java.util.Objects;
 
 public class Vare {
 
@@ -28,6 +30,22 @@ public class Vare {
 
     public int getPris() {
         return pris;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vare vare = (Vare) o;
+        return antal == vare.antal &&
+                pris == vare.pris &&
+                Objects.equals(varenavn, vare.varenavn) &&
+                Objects.equals(enhed, vare.enhed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(varenavn, antal, enhed, pris);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package view.personale;
+package main.view.personale;
 
 public class LoginController {
 

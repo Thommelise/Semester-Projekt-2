@@ -1,4 +1,6 @@
-package control;
+package main.control;
+
+import main.restaurant.Bestilling;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,7 +17,7 @@ public class Server {
 
             while (true) {
                 Socket socket = welcomeSocket.accept();
-                System.out.println("control.Client connected");
+                System.out.println("Client connected");
 
                 ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
                 ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
@@ -25,7 +27,7 @@ public class Server {
                 if (o.equals("bestil")){
                     outToClient.writeObject("What item?");
                     o = (String)inFromClient.readObject();
-                    restaurant.Bestilling bestilling = new restaurant.Bestilling(o);
+                    Bestilling bestilling = new Bestilling(o);
                     bestilling.lavBestilling();
                 }
 

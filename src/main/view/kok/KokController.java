@@ -1,8 +1,9 @@
-package view.kok;
-import control.UI;
+package main.view.kok;
+import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+
 import java.io.IOException;
 import java.net.URL;
 
