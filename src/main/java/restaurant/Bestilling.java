@@ -3,6 +3,7 @@ package restaurant;
 import handler.DatabaseHandler;
 import varelager.Vare;
 
+
 import java.util.ArrayList;
 
 public class Bestilling {
@@ -22,7 +23,7 @@ public class Bestilling {
     }
 
     public void lavBestilling() {
-        Ret ret = new Ret(hovederet);
+        restaurant.Ret ret = new restaurant.Ret(hovederet);
         ret.vareObjekt();
         ArrayList<Vare> alleVare = ret.vareObjekt();
         for (Vare currentVare: alleVare) {
