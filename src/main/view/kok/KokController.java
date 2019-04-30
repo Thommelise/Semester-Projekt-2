@@ -57,7 +57,7 @@ UI ui = new UI();
 
         try{
 
-            URL bestilHovedret = getClass().getResource("/view/personale/BestilleHovedret.Fxml");
+            URL bestilHovedret = getClass().getResource("/main/view/personale/BestilleHovedret.Fxml");
             BorderPane hovedretSceen = FXMLLoader.load(bestilHovedret);
             BorderPane borderPane = UI.getRoot();
             borderPane.setCenter(hovedretSceen);
