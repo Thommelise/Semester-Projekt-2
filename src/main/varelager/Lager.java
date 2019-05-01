@@ -41,8 +41,7 @@ public class Lager {
         return spilds;
     }
 
-    public ArrayList hentVare(Vare fjernes) {
-        String forspørgelse = fjernes.getVarenavn();
+    public ArrayList hentVare(String fjernes) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -55,7 +54,7 @@ public class Lager {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".vare;" );
             while ( rs.next() ) {
-                if (forspørgelse.equals(rs.getString("varenavn"))) {
+                if (fjernes.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
                     int antals = rs.getInt("antal");
                     String enhed = rs.getString("enhed");

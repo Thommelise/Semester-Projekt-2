@@ -7,9 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import main.handler.BestillingHandler;
+import main.handler.DatabaseHandler;
+import main.restaurant.Menukort;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class CheckOutController {
 
@@ -63,6 +68,42 @@ public class CheckOutController {
         catch (IOException e) {
             e.printStackTrace();
         }}
+
+    @FXML
+    void bekæftBestilling (javafx.event.ActionEvent event) {
+
+        try {
+            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
+            Menukort menukort = new Menukort();
+            ArrayList<String> ingredienser = new ArrayList<>();
+            for (int i = 0; i < bestillingHandler.ret.size(); i++) {
+                ingredienser = menukort.findVare(bestillingHandler.ret.get(i));
+                for (int j = 0; j < ingredienser.size(); j++) {
+                    DatabaseHandler.getVare(ingredienser.get(j));
+                }
+            }
+
+
+            bestillingHandler.sletRet();
+            kvittering.clear();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void sletBestilling (javafx.event.ActionEvent event) {
+
+        try {
+            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
+            bestillingHandler.sletRet();
+            kvittering.clear();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void logudBnt (javafx.event.ActionEvent event) {

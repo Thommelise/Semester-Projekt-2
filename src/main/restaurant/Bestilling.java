@@ -22,12 +22,11 @@ public class Bestilling {
         this.hovederet = hovederet;
     }
 
-    public void lavBestilling() {
+    /*public void lavBestilling() {
         Ret ret = new Ret(hovederet);
         ret.vareObjekt();
         ArrayList<Vare> alleVare = ret.vareObjekt();
         for (Vare currentVare: alleVare) {
             DatabaseHandler.getVare(currentVare);
-        }
+        }*/
     }
-}

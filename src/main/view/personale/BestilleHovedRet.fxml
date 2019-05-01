@@ -9,12 +9,12 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="spareribs" layoutX="90.0" layoutY="91.0" mnemonicParsing="false" onAction="#Spareribs" onMouseClicked="#Spareribs" prefHeight="52.0" prefWidth="138.0" text="Spareribs" />
+            <Button fx:id="Spareribs" layoutX="90.0" layoutY="91.0" mnemonicParsing="false" onAction="#Spareribs" onMouseClicked="#Spareribs" prefHeight="52.0" prefWidth="138.0" text="Spareribs" />
             <Button layoutX="90.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Kyllingebryst" />
             <Button layoutX="509.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Kyllinge spyd" />
             <Button layoutX="301.0" layoutY="91.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Hakkebøf" />
             <Button layoutX="509.0" layoutY="91.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Pizza" />
-            <Button layoutX="301.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Burger" />
+            <Button fx:id="burger" layoutX="301.0" layoutY="203.0" mnemonicParsing="false" onAction="#burger" onMouseClicked="#burger" prefHeight="52.0" prefWidth="138.0" text="Burger" />
          </children></Pane>
    </center>
    <bottom>

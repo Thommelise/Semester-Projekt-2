@@ -11,8 +11,8 @@
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <TextArea fx:id="kvittering" layoutX="58.0" layoutY="44.0" prefHeight="410.0" prefWidth="217.0" />
-            <Button layoutX="470.0" layoutY="263.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Slet Bestilling" />
-            <Button layoutX="470.0" layoutY="189.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Bekræft Bestilling" />
+            <Button layoutX="470.0" layoutY="263.0" mnemonicParsing="false" onAction="#sletBestilling" onMouseClicked="#sletBestilling" prefHeight="52.0" prefWidth="138.0" text="Slet Bestilling" />
+            <Button layoutX="470.0" layoutY="189.0" mnemonicParsing="false" onAction="#bekæftBestilling" onMouseClicked="#bekæftBestilling" prefHeight="52.0" prefWidth="138.0" text="Bekræft Bestilling" />
          </children>
       </Pane>
    </center>

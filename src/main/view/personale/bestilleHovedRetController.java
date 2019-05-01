@@ -13,13 +13,26 @@ import java.net.URL;
 public class bestilleHovedRetController {
 
     @FXML
-    private Button spareribs;
+    private Button Spareribs;
+
+    @FXML
+    private Button burger;
 
     @FXML
     void Spareribs (javafx.event.ActionEvent event) {
         try {
             BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
-            bestillingHandler.tilføjRet(spareribs.getId() + "\n");
+            bestillingHandler.tilføjRet(Spareribs.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void burger (javafx.event.ActionEvent event) {
+        try {
+            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
+            bestillingHandler.tilføjRet(burger.getId());
         } catch (Exception e) {
             e.printStackTrace();
         }
