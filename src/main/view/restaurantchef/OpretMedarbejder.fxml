@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.restaurantchef.OpretMedarbejderController">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
@@ -17,7 +16,7 @@
         </buttons>
       </ButtonBar>
    </bottom>
-   <center>
+   <left>
       <Pane prefHeight="487.0" prefWidth="740.0" BorderPane.alignment="CENTER">
          <children>
             <Text fill="#09b903" layoutX="221.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opret medarbejder">
@@ -25,44 +24,32 @@
                   <Font size="31.0" />
                </font>
             </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornavn">
+            <Text fill="#09b903" layoutX="65.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Navn">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternavn">
+            <Text fill="#09b903" layoutX="65.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR">
+            <Text fill="#09b903" layoutX="65.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="medarbejder id">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="medarbejder id">
+            <Text fill="#09b903" layoutX="71.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stilling">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stilling">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#09b903" layoutX="65.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Addresse">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField layoutX="65.0" layoutY="139.0" prefHeight="31.0" prefWidth="145.0" />
-            <TextField layoutX="65.0" layoutY="197.0" prefHeight="31.0" prefWidth="145.0" />
-            <TextField layoutX="65.0" layoutY="253.0" prefHeight="31.0" prefWidth="145.0" />
-            <TextField layoutX="65.0" layoutY="307.0" prefHeight="31.0" prefWidth="145.0" />
-            <TextField layoutX="65.0" layoutY="366.0" prefHeight="31.0" prefWidth="145.0" />
-            <TextField layoutX="65.0" layoutY="422.0" prefHeight="31.0" prefWidth="145.0" />
-            <Button layoutX="370.0" layoutY="243.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Opret" textFill="#09b903" />
+            <TextField fx:id="navn" layoutX="65.0" layoutY="139.0" prefHeight="31.0" prefWidth="145.0" />
+            <TextField fx:id="cprNummer" layoutX="65.0" layoutY="197.0" prefHeight="31.0" prefWidth="145.0" />
+            <TextField fx:id="id" layoutX="65.0" layoutY="254.0" prefHeight="31.0" prefWidth="145.0" />
+            <TextField fx:id="stilling" layoutX="65.0" layoutY="312.0" prefHeight="31.0" prefWidth="145.0" />
+            <Button layoutX="370.0" layoutY="243.0" mnemonicParsing="false" onAction="#tilføjMedarbejder" onMouseClicked="#tilføjMedarbejder" prefHeight="52.0" prefWidth="138.0" text="Opret" textFill="#09b903" />
          </children>
       </Pane>
-   </center>
+   </left>
 </BorderPane>

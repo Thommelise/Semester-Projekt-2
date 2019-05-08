@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.restaurantchef.RestaurantChefController">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
@@ -20,8 +19,8 @@
          <children>
             <Button layoutX="162.0" layoutY="119.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Se spild" textFill="#09b903" />
             <Button layoutX="324.0" layoutY="119.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Ændre sortiment" textFill="#09b903" />
-            <Button layoutX="231.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Spild" textFill="#09b903" />
-            <Button layoutX="485.0" layoutY="119.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Admin ansatte" textFill="#09b903" />
+            <Button layoutX="231.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Registrere spild" textFill="#09b903" />
+            <Button layoutX="485.0" layoutY="119.0" mnemonicParsing="false" onAction="#administrereAnsatteBnt" onMouseClicked="#administrereAnsatteBnt" prefHeight="52.0" prefWidth="138.0" text="Admin ansatte" textFill="#09b903" />
             <Button layoutX="416.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="regristere vare" textFill="#09b903" />
          </children>
       </Pane>
