@@ -27,4 +27,14 @@ public class MedarbejderHandler {
         MedarbejderListe medarbejderListe = new MedarbejderListe();
         return medarbejderListe.seEnkelMearbejder(cpr);
     }
+
+    public static String checkStilling (int id) {
+        ArrayList<Ansat> alleAnsat = seMedarbejder();
+        for (Ansat i:alleAnsat) {
+            if (id == i.getId()) {
+                return i.getStilling();
+            }
+        }
+        return null;
+    }
 }

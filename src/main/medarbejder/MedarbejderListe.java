@@ -29,10 +29,10 @@ public class MedarbejderListe {
                 String cpr = rs.getString("cpr");
                 int id = rs.getInt("id");
                 String stilling = rs.getString("Stilling");
-                System.out.println( "navn = " + navn );
+                /*System.out.println( "navn = " + navn );
                 System.out.println( "cpr = " + cpr );
                 System.out.println( "id = " + id );
-                System.out.println( "stilling = " + stilling );
+                System.out.println( "stilling = " + stilling );*/
                 Ansat ansat = new Ansat(navn, cpr, id, stilling);
                 medarbejder.add(ansat);
             }

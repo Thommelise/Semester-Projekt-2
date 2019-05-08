@@ -79,8 +79,7 @@ public class Lager {
         return varer;
     }
 
-    public ArrayList registrereSpild(Vare vare, int mængde) {
-        String forspørgelse = vare.getVarenavn();
+    public ArrayList registrereSpild(String vare, int mængde) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -93,7 +92,7 @@ public class Lager {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".spild;" );
             while ( rs.next() ) {
-                if (forspørgelse.equals(rs.getString("varenavn"))) {
+                if (vare.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
                     int antals = rs.getInt("antal");
                     System.out.println( "varenavn = " + varenavne );

@@ -3,6 +3,7 @@ package main.control;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import main.handler.DatabaseHandler;
+import main.handler.MedarbejderHandler;
 import main.medarbejder.Restaurantchef;
 import main.restaurant.Menukort;
 import main.varelager.Vare;
@@ -15,9 +16,9 @@ public class main {
 
     public static void main(String[] args) {
         /*launch();*/
-        Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
+        /*Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
 
-        System.out.println(restaurantchef.seSpild());
+        System.out.println(restaurantchef.seSpild());*/
 
         /*Ret retter = new Ret();
         retter.setVarenavn("burger bøf");
@@ -37,8 +38,10 @@ public class main {
         /*Vare vare = new Vare("testVare",3,"kasse",7);
         DatabaseHandler.getVare(vare);*/
 
-        Menukort menukort = new Menukort();
-        System.out.println(menukort.findVare("Spareribs"));
+        /*Menukort menukort = new Menukort();
+        System.out.println(menukort.findVare("Spareribs"));*/
+
+        System.out.println(MedarbejderHandler.checkStilling(1));
     }
     }
 

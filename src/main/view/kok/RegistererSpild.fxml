@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.kok.KokController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.kok.RegistrereSpildController">
    <top>
       <Pane prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
@@ -23,16 +22,16 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="113.0" layoutY="118.0" />
-            <TextField layoutX="439.0" layoutY="118.0" />
-            <Button layoutX="301.0" layoutY="234.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Tilføj" textFill="#09b903" />
+            <TextField fx:id="varenavn" layoutX="113.0" layoutY="118.0" />
+            <TextField fx:id="antal" layoutX="439.0" layoutY="118.0" />
+            <Button fx:id="tilføj" layoutX="301.0" layoutY="234.0" mnemonicParsing="false" onAction="#tilføjSpild" onMouseClicked="#tilføjSpild" prefHeight="52.0" prefWidth="138.0" text="Tilføj" textFill="#09b903" />
          </children>
       </Pane>
    </top>
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" text="Tilbage" textFill="#09b903" />
+          <Button fx:id="tilbage" mnemonicParsing="false" onAction="#tilbageBnt" onMouseClicked="#tilbageBnt" text="Tilbage" textFill="#09b903" />
         </buttons>
       </ButtonBar>
    </bottom>
