@@ -12,6 +12,14 @@ public class Spild {
         this.antal = antal;
     }
 
+    public String getVarenavn() {
+        return varenavn;
+    }
+
+    public int getAntal() {
+        return antal;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -164,7 +164,7 @@ public class Lager {
         }
     }
 
-    public void sletVare(Vare vare) {
+    public void sletVare(String vare) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -174,7 +174,7 @@ public class Lager {
                             "postgres", "sfp86nbb");
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
-            String sql = "delete from \"varelager\".vare where varenavn = '"+vare.getVarenavn()+"';";
+            String sql = "delete from \"varelager\".vare where varenavn = '"+vare+"';";
             stmt.executeUpdate(sql);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

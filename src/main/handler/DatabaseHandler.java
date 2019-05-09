@@ -34,7 +34,7 @@ public class DatabaseHandler {
         lager.opretVare(vare);
     }
 
-    public static void sletVare(Vare vare) {
+    public static void sletVare(String vare) {
         Lager lager = new Lager();
         lager.sletVare(vare);
     }

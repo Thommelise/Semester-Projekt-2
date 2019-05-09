@@ -6,6 +6,7 @@ import main.handler.DatabaseHandler;
 import main.handler.MedarbejderHandler;
 import main.medarbejder.Restaurantchef;
 import main.restaurant.Menukort;
+import main.varelager.Lager;
 import main.varelager.Vare;
 
 import java.awt.*;
@@ -41,7 +42,12 @@ public class main {
         /*Menukort menukort = new Menukort();
         System.out.println(menukort.findVare("Spareribs"));*/
 
-        System.out.println(MedarbejderHandler.checkStilling(1));
+        /*System.out.println(MedarbejderHandler.checkStilling(1));*/
+
+        Lager lager = new Lager();
+        Vare vare = new Vare("Ost",10,"Stk.",1);
+        lager.opretVare(vare);
+
     }
     }
 

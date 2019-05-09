@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.restaurantchef.TilføjVareController">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
@@ -19,15 +18,15 @@
    <top>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="301.0" layoutY="313.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Tilføj" textFill="#09b903" />
+            <Button layoutX="301.0" layoutY="313.0" mnemonicParsing="false" onAction="#tilføjVare" onMouseClicked="#tilføjVare" prefHeight="52.0" prefWidth="138.0" text="Tilføj" textFill="#09b903" />
             <Text fill="#09b903" layoutX="97.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Varenavn" />
-            <Text fill="#09b903" layoutX="249.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enhed" />
-            <Text fill="#09b903" layoutX="422.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal" />
+            <Text fill="#09b903" layoutX="249.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal" />
+            <Text fill="#09b903" layoutX="422.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enhed" />
             <Text fill="#09b903" layoutX="566.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris" />
-            <TextField layoutX="59.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
-            <TextField layoutX="215.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
-            <TextField layoutX="370.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
-            <TextField layoutX="521.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
+            <TextField fx:id="varenavn" layoutX="59.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
+            <TextField fx:id="antal" layoutX="215.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
+            <TextField fx:id="enhed" layoutX="370.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
+            <TextField fx:id="pris" layoutX="521.0" layoutY="118.0" prefHeight="31.0" prefWidth="138.0" />
          </children>
       </Pane>
    </top>

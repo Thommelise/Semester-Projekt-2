@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.restaurantchef.ÆndreSortimentController">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -18,10 +17,10 @@
                   <Font size="31.0" />
                </font>
             </Text>
-            <Button layoutX="109.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Tilføj" textFill="#09b903" />
-            <Button layoutX="457.0" layoutY="214.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="138.0" text="Delete" textFill="#09b903" />
+            <Button layoutX="109.0" layoutY="214.0" mnemonicParsing="false" onAction="#tilføjVareBnt" onMouseClicked="#tilføjVareBnt" prefHeight="52.0" prefWidth="138.0" text="Tilføj" textFill="#09b903" />
+            <Button layoutX="457.0" layoutY="214.0" mnemonicParsing="false" onAction="#sletVare" onMouseClicked="#sletVare" prefHeight="52.0" prefWidth="138.0" text="Delete" textFill="#09b903" />
             <Text fill="#09b903" layoutX="495.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Varenavn" />
-            <TextField layoutX="457.0" layoutY="166.0" prefHeight="31.0" prefWidth="138.0" />
+            <TextField fx:id="varenavn" layoutX="457.0" layoutY="166.0" prefHeight="31.0" prefWidth="138.0" />
          </children>
       </Pane>
    </center>
