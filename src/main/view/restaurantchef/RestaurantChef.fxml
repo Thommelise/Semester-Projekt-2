@@ -9,8 +9,8 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" text="Bestil Mad" />
-            <Button mnemonicParsing="false" text="Log ud" />
+          <Button mnemonicParsing="false" onAction="#bestilMadBnt" onMouseClicked="#bestilMadBnt" text="Bestil Mad" />
+            <Button mnemonicParsing="false" onAction="#logudBnt" text="Log ud" />
         </buttons>
       </ButtonBar>
    </bottom>

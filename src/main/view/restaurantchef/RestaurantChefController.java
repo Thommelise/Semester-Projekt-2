@@ -24,6 +24,32 @@ public class RestaurantChefController {
             e.printStackTrace();
         }}
 
+    @FXML
+    void logudBnt (javafx.event.ActionEvent event) {
 
+        try{
+
+            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
+            BorderPane loginSceen = FXMLLoader.load(logudBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(loginSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
+
+    @FXML
+    void bestilMadBnt (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL tilbageBnt = getClass().getResource("/main/view/personale/bestilleHovedRet.fxml");
+            BorderPane kokSceen = FXMLLoader.load(tilbageBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(kokSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
 
 }

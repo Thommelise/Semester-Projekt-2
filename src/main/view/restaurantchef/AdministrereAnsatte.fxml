@@ -27,7 +27,7 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" text="Tilbage" textFill="#09b903" />
+          <Button mnemonicParsing="false" onAction="#tilbageBnt" onMouseClicked="#tilbageBnt" text="Tilbage" textFill="#09b903" />
         </buttons>
       </ButtonBar>
    </bottom>
