@@ -7,9 +7,12 @@ import main.handler.MedarbejderHandler;
 import main.medarbejder.Restaurantchef;
 import main.restaurant.Menukort;
 import main.varelager.Lager;
+import main.varelager.Spild;
 import main.varelager.Vare;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static javafx.application.Application.launch;
 
@@ -44,10 +47,11 @@ public class main {
 
         /*System.out.println(MedarbejderHandler.checkStilling(1));*/
 
-        Lager lager = new Lager();
-        Vare vare = new Vare("Ost",10,"Stk.",1);
-        lager.opretVare(vare);
-
+      //  DatabaseHandler.registrereSpild("fisk",20);
+        System.out.println(DatabaseHandler.getSpild());
+        ArrayList<Spild> spilds = DatabaseHandler.getSpild();
+        Spild spild = new Spild("fisk",20);
+        System.out.println(Arrays.asList(spilds).contains(spild));
     }
     }
 

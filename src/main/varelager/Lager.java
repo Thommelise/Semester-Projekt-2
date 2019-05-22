@@ -1,8 +1,12 @@
 package main.varelager;
 
 
+import main.handler.DatabaseHandler;
+import org.omg.DynamicAny.DynAny;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Lager {
 
@@ -90,9 +94,25 @@ public class Lager {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".spild;" );
-            while ( rs.next() ) {
-                if (vare.equals(rs.getString("varenavn"))) {
+
+            ArrayList<Spild> spilds = DatabaseHandler.getSpild();
+            Spild spild = new Spild(vare,mængde);
+            System.out.println(spilds);
+            System.out.println(spild);
+
+                if (Arrays.asList(spilds).contains(spild)) {
+
+
+                    String sql = "UPDATE \"varelager\".vare set antal = antal - '"+mængde+"' where varenavn = '"+vare+"';";
+                    String sql0 = "UPDATE \"varelager\".spild set antal = antal + '"+mængde+"' where varenavn = '"+vare+"';";
+                    stmt.executeUpdate(sql);
+                    stmt.executeUpdate(sql0);
+                } else {
+                    String sql0 = "INSERT INTO \"varelager\".spild VALUES ('"+vare+"', '"+mængde+"');";
+
+                    stmt.executeUpdate(sql0);
+                }
+                /*if (vare.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
                     int antals = rs.getInt("antal");
                     System.out.println( "varenavn = " + varenavne );
@@ -103,8 +123,10 @@ public class Lager {
                     stmt.executeUpdate(sql);
                     stmt.executeUpdate(sql0);
                     System.out.println(rs.getInt("antal"));
-                }
-            }
+                    break;
+                }*/
+
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -160,7 +182,7 @@ public class Lager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
 
     public void sletVare(String vare) {

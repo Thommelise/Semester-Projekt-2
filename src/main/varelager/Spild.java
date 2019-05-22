@@ -1,19 +1,21 @@
 package main.varelager;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.Objects;
 
 public class Spild {
 
-    private String varenavn;
+    private SimpleStringProperty varenavn;
     private int antal;
 
     public Spild(String varenavn, int antal) {
-        this.varenavn = varenavn;
+        this.varenavn = new SimpleStringProperty(varenavn);
         this.antal = antal;
     }
 
     public String getVarenavn() {
-        return varenavn;
+        return varenavn.get();
     }
 
     public int getAntal() {
