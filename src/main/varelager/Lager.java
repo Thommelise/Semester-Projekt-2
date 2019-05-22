@@ -112,8 +112,7 @@ public class Lager {
         }
         return varer;
     }
-    public ArrayList registrereBestilteVare(Vare vare, int mængde) {
-        String forspørgelse = vare.getVarenavn();
+    public void registrereBestilteVare(String vare, int mængde) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -126,7 +125,7 @@ public class Lager {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".vare;");
             while (rs.next()) {
-                if (forspørgelse.equals(rs.getString("varenavn"))) {
+                if (vare.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
                     int antals = rs.getInt("antal");
                     System.out.println("varenavn = " + varenavne);
@@ -142,7 +141,6 @@ public class Lager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return varer;
     }
 
     public void opretVare(Vare vare) {

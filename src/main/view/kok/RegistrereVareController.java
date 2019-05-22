@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import main.control.UI;
+import main.handler.DatabaseHandler;
+import javafx.scene.control.TextField;
+import main.varelager.Vare;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,8 +23,10 @@ public class RegistrereVareController {
 
 
     @FXML
-    void registrereVare(ActionEvent event) {
-        
+    void registrereVarer(javafx.event.ActionEvent event) {
+        DatabaseHandler.registrereBestilteVare(varenavn.getText(),Integer.parseInt(antal.getText()));
+        varenavn.clear();
+        antal.clear();
     }
 
     @FXML

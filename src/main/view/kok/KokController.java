@@ -25,14 +25,14 @@ UI ui = new UI();
         }}
 
     @FXML
-    void bestilleVareBnt (javafx.event.ActionEvent event) {
+    void registereVareBnt (javafx.event.ActionEvent event) {
 
         try{
 
-            URL bestilleVareBnt = getClass().getResource("RegistrereVare.fxml");
-            BorderPane bestilleVare = FXMLLoader.load(bestilleVareBnt);
+            URL registrereVareBnt = getClass().getResource("RegistrereVare.fxml");
+            BorderPane registrereSceen = FXMLLoader.load(registrereVareBnt);
             BorderPane borderPane = UI.getRoot();
-            borderPane.setCenter(bestilleVare);
+            borderPane.setCenter(registrereSceen);
         }
         catch (IOException e) {
             e.printStackTrace();

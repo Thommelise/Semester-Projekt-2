@@ -24,9 +24,9 @@ public class DatabaseHandler {
         return lager.registrereSpild(vare, mængde);
     }
 
-    public static ArrayList<Vare> registrereBestilteVare(Vare vare, int mængde) {
+    public static void registrereBestilteVare(String vare, int mængde) {
         Lager lager = new Lager();
-        return lager.registrereBestilteVare(vare, mængde);
+        lager.registrereBestilteVare(vare, mængde);
     }
 
     public static void opretVare(Vare vare) {

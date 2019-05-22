@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.kok.KokController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.kok.KokController">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09b903;" BorderPane.alignment="CENTER">
         <buttons>
@@ -18,7 +18,7 @@
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="spild" layoutX="442.0" layoutY="193.0" mnemonicParsing="false" onAction="#SpildBnt" onMouseClicked="#SpildBnt" prefHeight="52.0" prefWidth="138.0" text="Registrere Spild" textFill="#09b903" />
-            <Button fx:id="bestilleVare" layoutX="149.0" layoutY="193.0" mnemonicParsing="false" onAction="#bestilleVareBnt" onMouseClicked="#bestilleVareBnt" prefHeight="52.0" prefWidth="138.0" text="Bestille vare" textFill="#09b903" />
+            <Button fx:id="bestilleVare" layoutX="149.0" layoutY="193.0" mnemonicParsing="false" onAction="#registereVareBnt" onMouseClicked="#registereVareBnt" prefHeight="52.0" prefWidth="138.0" text="Bestille vare" textFill="#09b903" />
          </children>
       </Pane>
    </center>
