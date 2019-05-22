@@ -160,6 +160,7 @@ public class Lager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
     }
 
     public void sletVare(String vare) {
