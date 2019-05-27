@@ -38,19 +38,6 @@ public class bestilleHovedRetController {
         }
     }
 
-    @FXML
-    void logudBnt (javafx.event.ActionEvent event) {
-
-        try{
-
-            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
-            BorderPane loginSceen = FXMLLoader.load(logudBnt);
-            BorderPane borderPane = UI.getRoot();
-            borderPane.setCenter(loginSceen);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }}
 
     @FXML
     void bestilleDringBnt (javafx.event.ActionEvent event) {

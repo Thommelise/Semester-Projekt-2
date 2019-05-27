@@ -16,11 +16,11 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    @FXML
-    void LoginBnt (javafx.event.ActionEvent event) {
-        String stilling = MedarbejderHandler.checkStilling(Integer.parseInt(passwordField.getText()));
-        if (stilling.equals("Kok")) {
-            try{
+        @FXML
+        void LoginBnt (javafx.event.ActionEvent event) {
+            String stilling = MedarbejderHandler.checkStilling(Integer.parseInt(passwordField.getText()));
+            if (stilling.equals("Kok")) {
+                try{
                     URL kokBnt = getClass().getResource("/main/view/kok/Kok.fxml");
                     BorderPane kokSceen = FXMLLoader.load(kokBnt);
                     BorderPane borderPane = UI.getRoot();

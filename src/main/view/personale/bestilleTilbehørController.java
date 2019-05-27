@@ -1,5 +1,6 @@
 package main.view.personale;
 
+import javafx.event.ActionEvent;
 import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,19 +11,13 @@ import java.net.URL;
 
 public class bestilleTilbehørController {
 
-    @FXML
-    void logudBnt (javafx.event.ActionEvent event) {
 
-        try{
+    KnappeController knapper;
 
-            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
-            BorderPane loginSceen = FXMLLoader.load(logudBnt);
-            BorderPane borderPane = UI.getRoot();
-            borderPane.setCenter(loginSceen);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }}
+    public void logud () {
+
+        knapper.logudBnt(ActionEvent);
+    }
 
     @FXML
     void bestilleDringBnt (javafx.event.ActionEvent event) {
