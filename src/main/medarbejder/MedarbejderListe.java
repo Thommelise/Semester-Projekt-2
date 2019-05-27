@@ -100,25 +100,27 @@ public class MedarbejderListe {
         }
     }
 
-    public void sletMedarbejder(String cpr) {
-        Connection c = null;
-        Statement stmt = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully");
+    public boolean sletMedarbejder(String cpr) {
+        if (cpr.matches("[a-zA-Z]+") == false && cpr.length() == 10) {
+            Connection c = null;
+            Statement stmt = null;
+            try {
+                Class.forName("org.postgresql.Driver");
+                c = DriverManager
+                        .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                                "postgres", "sfp86nbb");
+                System.out.println("Opened database successfully");
 
-            stmt = c.createStatement();
-            stmt = c.createStatement();
-            String sql0 = "delete from \"varelager\".medarbejder where cpr = '"+cpr+"'; ";
-            stmt.executeUpdate(sql0);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+                stmt = c.createStatement();
+                String sql0 = "delete from \"varelager\".medarbejder where cpr = '" + cpr + "'; ";
+                stmt.executeUpdate(sql0);
+                return true;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+        return false;
     }
 }

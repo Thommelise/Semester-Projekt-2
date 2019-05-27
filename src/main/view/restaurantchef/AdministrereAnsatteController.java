@@ -19,12 +19,14 @@ public class AdministrereAnsatteController {
     @FXML
     void fjernMedarbejder(javafx.event.ActionEvent event) {
         try {
+            if (MedarbejderHandler.sletMedarbejder(cprNummer.getText())) {
 
-            MedarbejderHandler.sletMedarbejder(cprNummer.getText());
-
-
+                cprNummer.setText("");
+            } else {
+                cprNummer.setText("Ugyldig CPR.");
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            cprNummer.setText("Skal være tal");
         }
     }
 

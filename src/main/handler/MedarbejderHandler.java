@@ -18,9 +18,9 @@ public class MedarbejderHandler {
         medarbejderListe.opretMedarbejder(ansat);
     }
 
-    public static void sletMedarbejder(String cpr) {
+    public static boolean sletMedarbejder(String cpr) {
         MedarbejderListe medarbejderListe = new MedarbejderListe();
-        medarbejderListe.sletMedarbejder(cpr);
+        return medarbejderListe.sletMedarbejder(cpr);
     }
 
     public static Ansat seEnkelMedarbejder(String cpr) {
