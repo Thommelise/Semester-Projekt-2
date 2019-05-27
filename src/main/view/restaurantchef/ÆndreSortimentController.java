@@ -19,11 +19,11 @@ public class ÆndreSortimentController {
     void sletVare(javafx.event.ActionEvent event) {
         try {
 
-            DatabaseHandler.sletVare(varenavn.getText());
-            varenavn.clear();
-
+            if (DatabaseHandler.sletVare(varenavn.getText())) {
+                varenavn.clear();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            varenavn.setText("Skal være bogstaver");
         }
     }
 

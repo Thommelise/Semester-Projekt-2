@@ -12,10 +12,10 @@ public class MedarbejderHandler {
         return medarbejderListe.seMearbejder();
     }
 
-    public static void opretMedarbejder(String navn, String cpr, int id, String stilling) {
+    public static boolean opretMedarbejder(String navn, String cpr, int id, String stilling) {
         Ansat ansat = new Ansat(navn,cpr,id,stilling);
         MedarbejderListe medarbejderListe = new MedarbejderListe();
-        medarbejderListe.opretMedarbejder(ansat);
+        return medarbejderListe.opretMedarbejder(ansat);
     }
 
     public static boolean sletMedarbejder(String cpr) {
@@ -35,6 +35,6 @@ public class MedarbejderHandler {
                 return i.getStilling();
             }
         }
-        return null;
+        return "Ugyldig";
     }
 }

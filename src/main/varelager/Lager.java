@@ -84,48 +84,36 @@ public class Lager {
     }
 
     public void registrereSpild(String vare, int mængde) {
-        Connection c = null;
-        Statement stmt = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully - registrere spild");
+        if (vare.matches("[a-zA-Z]+") == true) {
+            Connection c = null;
+            Statement stmt = null;
+            try {
+                Class.forName("org.postgresql.Driver");
+                c = DriverManager
+                        .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                                "postgres", "sfp86nbb");
+                System.out.println("Opened database successfully - registrere spild");
 
-            stmt = c.createStatement();
+                stmt = c.createStatement();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".spild;" );
-            String sql0 = "INSERT INTO \"varelager\".spild VALUES ('" + vare + "', '" + mængde + "');";
-            while (rs.next()) {
-                if (vare.equals(rs.getString("varenavn"))) {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".spild;");
+                String sql0 = "INSERT INTO \"varelager\".spild VALUES ('" + vare + "', '" + mængde + "');";
+                while (rs.next()) {
+                    if (vare.equals(rs.getString("varenavn"))) {
 
-                    String sql = "UPDATE \"varelager\".vare set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
-                    sql0 = "UPDATE \"varelager\".spild set antal = antal + '" + mængde + "' where varenavn = '" + vare + "';";
-                    stmt.executeUpdate(sql);
-                    break;
+                        String sql = "UPDATE \"varelager\".vare set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
+                        sql0 = "UPDATE \"varelager\".spild set antal = antal + '" + mængde + "' where varenavn = '" + vare + "';";
+                        stmt.executeUpdate(sql);
+                        break;
+                    }
                 }
+                stmt.executeUpdate(sql0);
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            stmt.executeUpdate(sql0);
-
-                /*if (vare.equals(rs.getString("varenavn"))) {
-                    String varenavne = rs.getString("varenavn");
-                    int antals = rs.getInt("antal");
-                    System.out.println( "varenavn = " + varenavne );
-                    System.out.println( "antal = " + antals );
-                    stmt = c.createStatement();
-                    String sql = "UPDATE \"varelager\".vare set antal = antal - '"+mængde+"' where varenavn = '"+varenavne+"';";
-                    String sql0 = "UPDATE \"varelager\".spild set antal = antal + '"+mængde+"' where varenavn = '"+varenavne+"';";
-                    stmt.executeUpdate(sql);
-                    stmt.executeUpdate(sql0);
-                    System.out.println(rs.getInt("antal"));
-                    break;
-                }*/
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
     public void registrereBestilteVare(String vare, int mængde) {
@@ -159,7 +147,7 @@ public class Lager {
         }
     }
 
-    public void opretVare(Vare vare) {
+    public boolean opretVare(Vare vare) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -171,15 +159,16 @@ public class Lager {
                     stmt = c.createStatement();
                     String sql = "insert into \"varelager\".vare values ('"+vare.getVarenavn()+"','"+vare.getAntal()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
                     stmt.executeUpdate(sql);
+                    return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        return false;
     }
 
-    public void sletVare(String vare) {
+    public boolean sletVare(String vare) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -191,10 +180,12 @@ public class Lager {
             stmt = c.createStatement();
             String sql = "delete from \"varelager\".vare where varenavn = '"+vare+"';";
             stmt.executeUpdate(sql);
+            return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 }

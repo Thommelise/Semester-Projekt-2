@@ -27,15 +27,18 @@ public class OpretMedarbejderController {
     @FXML
     void tilføjMedarbejder(javafx.event.ActionEvent event) {
         try {
+            if (MedarbejderHandler.opretMedarbejder(navn.getText(),cprNummer.getText(),Integer.parseInt(id.getText()),stilling.getText())) {
 
-            MedarbejderHandler.opretMedarbejder(navn.getText(),cprNummer.getText(),Integer.parseInt(id.getText()),stilling.getText());
-            navn.clear();
-            cprNummer.clear();
-            id.clear();
-            stilling.clear();
-
+                navn.clear();
+                cprNummer.clear();
+                id.clear();
+                stilling.clear();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            navn.setText("Skal være bogstaver");
+            cprNummer.setText("Skal være tal");
+            id.setText("skal være tal");
+            stilling.setText("Skal være bogstaver");
         }
     }
 

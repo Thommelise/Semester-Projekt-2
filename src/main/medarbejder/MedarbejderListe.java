@@ -78,26 +78,31 @@ public class MedarbejderListe {
         return null;
     }
 
-    public void opretMedarbejder(Ansat ansat) {
-        Connection c = null;
-        Statement stmt = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully");
+    public boolean opretMedarbejder(Ansat ansat) {
+        if (ansat != null) {
+            Connection c = null;
+            Statement stmt = null;
+            try {
+                Class.forName("org.postgresql.Driver");
+                c = DriverManager
+                        .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                                "postgres", "sfp86nbb");
+                System.out.println("Opened database successfully");
 
-            stmt = c.createStatement();
-                    stmt = c.createStatement();
-                    String sql0 = "insert into \"varelager\".medarbejder values ('"+ansat.getNavn()+"','"+ansat.getCpr()+"','"+ansat.getId()+"','"+ansat.getStilling()+"');";
-                    stmt.executeUpdate(sql0);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+                stmt = c.createStatement();
+                stmt = c.createStatement();
+                String sql0 = "insert into \"varelager\".medarbejder values ('" + ansat.getNavn() + "','" + ansat.getCpr() + "','" + ansat.getId() + "','" + ansat.getStilling() + "');";
+                stmt.executeUpdate(sql0);
+                return true;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
+        return false;
     }
 
     public boolean sletMedarbejder(String cpr) {

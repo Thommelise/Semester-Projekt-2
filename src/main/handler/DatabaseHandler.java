@@ -29,13 +29,13 @@ public class DatabaseHandler {
         lager.registrereBestilteVare(vare, mængde);
     }
 
-    public static void opretVare(Vare vare) {
+    public static boolean opretVare(Vare vare) {
         Lager lager = new Lager();
-        lager.opretVare(vare);
+        return lager.opretVare(vare);
     }
 
-    public static void sletVare(String vare) {
+    public static boolean sletVare(String vare) {
         Lager lager = new Lager();
-        lager.sletVare(vare);
+        return lager.sletVare(vare);
     }
 }

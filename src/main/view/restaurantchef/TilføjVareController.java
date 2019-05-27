@@ -23,14 +23,17 @@ public class TilføjVareController {
     void tilføjVare(javafx.event.ActionEvent event) {
         try {
             Vare vare = new Vare(varenavn.getText(),Integer.parseInt(antal.getText()),enhed.getText(),Integer.parseInt(pris.getText()));
-            DatabaseHandler.opretVare(vare);
-            varenavn.clear();
-            antal.clear();
-            enhed.clear();
-            pris.clear();
-
+            if (DatabaseHandler.opretVare(vare)) {
+                varenavn.clear();
+                antal.clear();
+                enhed.clear();
+                pris.clear();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            varenavn.setText("Skal være bogstaver");
+            antal.setText("Skal være tal");
+            enhed.setText("Skal være bogstaver");
+            pris.setText("skal være tal");
         }
     }
 }

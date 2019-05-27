@@ -25,7 +25,8 @@ public class RegistrereSpildController {
             DatabaseHandler.registrereSpild(varenavn.getText(),Integer.parseInt(antal.getText()));
 
         } catch (Exception e) {
-            e.printStackTrace();
+            varenavn.setText("Skal være bogstaver");
+            antal.setText("Skal være nummer");
         }
     }
 

@@ -24,9 +24,14 @@ public class RegistrereVareController {
 
     @FXML
     void registrereVarer(javafx.event.ActionEvent event) {
-        DatabaseHandler.registrereBestilteVare(varenavn.getText(),Integer.parseInt(antal.getText()));
-        varenavn.clear();
-        antal.clear();
+        try {
+            DatabaseHandler.registrereBestilteVare(varenavn.getText(), Integer.parseInt(antal.getText()));
+            varenavn.clear();
+            antal.clear();
+        } catch (Exception e) {
+            varenavn.setText("Skal være bogstaver");
+            antal.setText("Skal være nummer");
+        }
     }
 
     @FXML

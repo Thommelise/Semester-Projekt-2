@@ -1,3 +1,4 @@
+/*
 package main.view.personale;
 
 import javafx.event.ActionEvent;
@@ -62,3 +63,4 @@ public class bestilleTilbehørController {
         }}
 
 }
+*/
