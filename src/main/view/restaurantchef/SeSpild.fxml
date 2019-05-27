@@ -18,12 +18,10 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="seSpild" layoutX="129.0" layoutY="40.0" prefHeight="400.0" prefWidth="483.0">
+            <TableView fx:id="seSpild" layoutX="129.0" layoutY="40.0" prefHeight="400.0" prefWidth="300.0">
               <columns>
                 <TableColumn fx:id="Varenavn" prefWidth="235.0" text="Varenavn" />
                 <TableColumn fx:id="Antal" prefWidth="62.0" text="Antal" />
-                  <TableColumn fx:id="Pris" prefWidth="93.0" text="Pris" />
-                  <TableColumn fx:id="PrisIAlt" prefWidth="92.0" text="Pris i alt" />
               </columns>
             </TableView>
          </children>

@@ -47,11 +47,8 @@ public class main {
 
         /*System.out.println(MedarbejderHandler.checkStilling(1));*/
 
-      //  DatabaseHandler.registrereSpild("fisk",20);
+        DatabaseHandler.registrereSpild("agurk",5);
         System.out.println(DatabaseHandler.getSpild());
-        ArrayList<Spild> spilds = DatabaseHandler.getSpild();
-        Spild spild = new Spild("fisk",20);
-        System.out.println(Arrays.asList(spilds).contains(spild));
     }
     }
 

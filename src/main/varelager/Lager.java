@@ -83,7 +83,7 @@ public class Lager {
         return varer;
     }
 
-    public ArrayList registrereSpild(String vare, int mængde) {
+    public void registrereSpild(String vare, int mængde) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -91,27 +91,23 @@ public class Lager {
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
                             "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully");
+            System.out.println("Opened database successfully - registrere spild");
 
             stmt = c.createStatement();
 
-            ArrayList<Spild> spilds = DatabaseHandler.getSpild();
-            Spild spild = new Spild(vare,mængde);
-            System.out.println(spilds);
-            System.out.println(spild);
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".spild;" );
+            String sql0 = "INSERT INTO \"varelager\".spild VALUES ('" + vare + "', '" + mængde + "');";
+            while (rs.next()) {
+                if (vare.equals(rs.getString("varenavn"))) {
 
-                if (Arrays.asList(spilds).contains(spild)) {
-
-
-                    String sql = "UPDATE \"varelager\".vare set antal = antal - '"+mængde+"' where varenavn = '"+vare+"';";
-                    String sql0 = "UPDATE \"varelager\".spild set antal = antal + '"+mængde+"' where varenavn = '"+vare+"';";
+                    String sql = "UPDATE \"varelager\".vare set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
+                    sql0 = "UPDATE \"varelager\".spild set antal = antal + '" + mængde + "' where varenavn = '" + vare + "';";
                     stmt.executeUpdate(sql);
-                    stmt.executeUpdate(sql0);
-                } else {
-                    String sql0 = "INSERT INTO \"varelager\".spild VALUES ('"+vare+"', '"+mængde+"');";
-
-                    stmt.executeUpdate(sql0);
+                    break;
                 }
+            }
+            stmt.executeUpdate(sql0);
+
                 /*if (vare.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
                     int antals = rs.getInt("antal");
@@ -126,13 +122,11 @@ public class Lager {
                     break;
                 }*/
 
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return varer;
     }
     public void registrereBestilteVare(String vare, int mængde) {
         Connection c = null;

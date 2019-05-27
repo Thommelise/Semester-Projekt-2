@@ -19,9 +19,9 @@ public class DatabaseHandler {
         return lager.hentVare(vare);
     }
 
-    public static ArrayList<Spild> registrereSpild(String vare, int mængde) {
+    public static void registrereSpild(String vare, int mængde) {
         Lager lager = new Lager();
-        return lager.registrereSpild(vare, mængde);
+        lager.registrereSpild(vare,mængde);
     }
 
     public static void registrereBestilteVare(String vare, int mængde) {
