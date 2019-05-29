@@ -20,10 +20,12 @@ public class LoginController {
     @FXML
     private TextField errorMessage;
 
+    private MedarbejderHandler medarbejderHandler = MedarbejderHandler.initMedarbejderHandler();
+
         @FXML
         void LoginBnt (javafx.event.ActionEvent event) {
             try {
-                String stilling = MedarbejderHandler.checkStilling(Integer.parseInt(passwordField.getText()));
+                String stilling = medarbejderHandler.checkStilling(Integer.parseInt(passwordField.getText()));
                 if (stilling.equals("Ugyldig")) {
                     errorMessage.setText("Ugyldig id");
                 }

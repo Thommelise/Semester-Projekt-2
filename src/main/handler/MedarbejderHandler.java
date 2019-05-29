@@ -7,28 +7,37 @@ import java.util.ArrayList;
 
 public class MedarbejderHandler {
 
-    public static ArrayList<Ansat> seMedarbejder() {
+    private static MedarbejderHandler objMedarbejde = null;
+
+    public synchronized static MedarbejderHandler initMedarbejderHandler(){
+        if(objMedarbejde == null) {
+            objMedarbejde = new MedarbejderHandler();
+        }
+        return objMedarbejde;
+    }
+
+    public synchronized ArrayList<Ansat> seMedarbejder() {
         MedarbejderListe medarbejderListe = new MedarbejderListe();
         return medarbejderListe.seMearbejder();
     }
 
-    public static boolean opretMedarbejder(String navn, String cpr, int id, String stilling) {
+    public synchronized boolean opretMedarbejder(String navn, String cpr, int id, String stilling) {
         Ansat ansat = new Ansat(navn,cpr,id,stilling);
         MedarbejderListe medarbejderListe = new MedarbejderListe();
         return medarbejderListe.opretMedarbejder(ansat);
     }
 
-    public static boolean sletMedarbejder(String cpr) {
+    public synchronized boolean sletMedarbejder(String cpr) {
         MedarbejderListe medarbejderListe = new MedarbejderListe();
         return medarbejderListe.sletMedarbejder(cpr);
     }
 
-    public static Ansat seEnkelMedarbejder(String cpr) {
+    public synchronized Ansat seEnkelMedarbejder(String cpr) {
         MedarbejderListe medarbejderListe = new MedarbejderListe();
         return medarbejderListe.seEnkelMearbejder(cpr);
     }
 
-    public static String checkStilling (int id) {
+    public synchronized String checkStilling (int id) {
         ArrayList<Ansat> alleAnsat = seMedarbejder();
         for (Ansat i:alleAnsat) {
             if (id == i.getId()) {

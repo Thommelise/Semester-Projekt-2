@@ -19,11 +19,13 @@ public class TilføjVareController {
     @FXML
     private TextField pris;
 
+    private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
+
     @FXML
     void tilføjVare(javafx.event.ActionEvent event) {
         try {
             Vare vare = new Vare(varenavn.getText(),Integer.parseInt(antal.getText()),enhed.getText(),Integer.parseInt(pris.getText()));
-            if (DatabaseHandler.opretVare(vare)) {
+            if (databaseHandler.opretVare(vare)) {
                 varenavn.clear();
                 antal.clear();
                 enhed.clear();

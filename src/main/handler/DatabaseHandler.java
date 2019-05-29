@@ -9,32 +9,41 @@ import java.util.ArrayList;
 
 public class DatabaseHandler {
 
-    public static ArrayList<Spild> getSpild() {
+    private static DatabaseHandler objDatabase = null;
+
+    public synchronized static DatabaseHandler initDatabaseHandler(){
+        if(objDatabase == null) {
+            objDatabase = new DatabaseHandler();
+        }
+        return objDatabase;
+    }
+
+    public synchronized ArrayList<Spild> getSpild() {
         Lager lager = new Lager();
         return lager.getSpild();
     }
 
-    public static ArrayList<Vare> getVare(String vare) {
+    public synchronized ArrayList<Vare> getVare(String vare) {
         Lager lager = new Lager();
         return lager.hentVare(vare);
     }
 
-    public static void registrereSpild(String vare, int mængde) {
+    public synchronized void registrereSpild(String vare, int mængde) {
         Lager lager = new Lager();
         lager.registrereSpild(vare,mængde);
     }
 
-    public static void registrereBestilteVare(String vare, int mængde) {
+    public synchronized void registrereBestilteVare(String vare, int mængde) {
         Lager lager = new Lager();
         lager.registrereBestilteVare(vare, mængde);
     }
 
-    public static boolean opretVare(Vare vare) {
+    public synchronized boolean opretVare(Vare vare) {
         Lager lager = new Lager();
         return lager.opretVare(vare);
     }
 
-    public static boolean sletVare(String vare) {
+    public synchronized boolean sletVare(String vare) {
         Lager lager = new Lager();
         return lager.sletVare(vare);
     }

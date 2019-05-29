@@ -23,8 +23,7 @@ public class KnappeController {
             e.printStackTrace();
         }}
 
-
-};
+}
 
 
 

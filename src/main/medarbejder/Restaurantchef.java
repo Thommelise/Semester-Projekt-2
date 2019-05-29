@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Restaurantchef extends Ansat {
 
+    private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
 
     public Restaurantchef(String navn, String cpr, int id, String stilling) {
         super(navn, cpr, id, stilling);
@@ -17,7 +18,7 @@ public class Restaurantchef extends Ansat {
     }
 
     public ArrayList<Spild> seSpild() {
-        return DatabaseHandler.getSpild();
+        return databaseHandler.getSpild();
     }
 
     public Spild sortereSpild() {

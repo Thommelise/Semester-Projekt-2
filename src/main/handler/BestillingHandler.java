@@ -12,15 +12,15 @@ public class BestillingHandler {
     public ArrayList<String> ret = new ArrayList<>();
     private static BestillingHandler bestilling = null;
 
-    public void tilføjRet(String madvare) {
+    public synchronized void tilføjRet(String madvare) {
         ret.add(madvare);
     }
 
-    public ArrayList<String> getRet() {
+    public synchronized ArrayList<String> getRet() {
         return ret;
     }
 
-    public void sletRet() {
+    public synchronized void sletRet() {
         ret.clear();
     }
 

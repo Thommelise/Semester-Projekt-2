@@ -21,11 +21,12 @@ public class RegistrereVareController {
     @FXML
     private TextField antal;
 
+    private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
 
     @FXML
     void registrereVarer(javafx.event.ActionEvent event) {
         try {
-            DatabaseHandler.registrereBestilteVare(varenavn.getText(), Integer.parseInt(antal.getText()));
+            databaseHandler.registrereBestilteVare(varenavn.getText(), Integer.parseInt(antal.getText()));
             varenavn.clear();
             antal.clear();
         } catch (Exception e) {

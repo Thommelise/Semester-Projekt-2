@@ -9,7 +9,7 @@ import java.net.Socket;
 
 public class Server {
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("starting server...");
 
         try{
@@ -24,16 +24,16 @@ public class Server {
                 String o = (String)inFromClient.readObject();
                 System.out.println("recieved: " + o);
 
-                if (o.equals("bestil")){
+                /*if (o.equals("bestil")){
                     outToClient.writeObject("What item?");
                     o = (String)inFromClient.readObject();
                     Bestilling bestilling = new Bestilling(o);
                     bestilling.lavBestilling();
-                }
+                }*/
 
             }
         } catch (Exception e) {
 
         }
-    }*/
+    }
 }

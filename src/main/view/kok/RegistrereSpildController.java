@@ -19,10 +19,12 @@ public class RegistrereSpildController {
     @FXML
     private TextField antal;
 
+    private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
+
     @FXML
     void tilføjSpild(javafx.event.ActionEvent event) {
         try {
-            DatabaseHandler.registrereSpild(varenavn.getText(),Integer.parseInt(antal.getText()));
+            databaseHandler.registrereSpild(varenavn.getText(),Integer.parseInt(antal.getText()));
 
         } catch (Exception e) {
             varenavn.setText("Skal være bogstaver");

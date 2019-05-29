@@ -18,10 +18,11 @@ public class bestilleHovedRetController {
     @FXML
     private Button burger;
 
+    private BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
+
     @FXML
     void Spareribs (javafx.event.ActionEvent event) {
         try {
-            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
             bestillingHandler.tilføjRet(Spareribs.getId());
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,7 +32,6 @@ public class bestilleHovedRetController {
     @FXML
     void burger (javafx.event.ActionEvent event) {
         try {
-            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
             bestillingHandler.tilføjRet(burger.getId());
         } catch (Exception e) {
             e.printStackTrace();

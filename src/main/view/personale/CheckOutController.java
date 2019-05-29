@@ -21,6 +21,8 @@ public class CheckOutController {
     @FXML
     private TextArea kvittering;
 
+    private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
+
     @FXML
     void initialize(){
         BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
@@ -79,10 +81,9 @@ public class CheckOutController {
             for (int i = 0; i < bestillingHandler.ret.size(); i++) {
                 ingredienser = menukort.findVare(bestillingHandler.ret.get(i));
                 for (int j = 0; j < ingredienser.size(); j++) {
-                    DatabaseHandler.getVare(ingredienser.get(j));
+                    databaseHandler.getVare(ingredienser.get(j));
                 }
             }
-
 
             bestillingHandler.sletRet();
             kvittering.clear();

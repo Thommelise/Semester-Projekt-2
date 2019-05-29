@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import main.control.UI;
+import main.handler.DatabaseHandler;
 import main.handler.MedarbejderHandler;
 import javafx.scene.control.TextField;
 
@@ -16,10 +17,12 @@ public class AdministrereAnsatteController {
     @FXML
     private TextField cprNummer;
 
+    private MedarbejderHandler medarbejderHandler = MedarbejderHandler.initMedarbejderHandler();
+
     @FXML
     void fjernMedarbejder(javafx.event.ActionEvent event) {
         try {
-            if (MedarbejderHandler.sletMedarbejder(cprNummer.getText())) {
+            if (medarbejderHandler.sletMedarbejder(cprNummer.getText())) {
 
                 cprNummer.setText("");
             } else {

@@ -33,7 +33,7 @@ public class SeSpildController implements Initializable {
 
     }
 
-
+    DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -45,7 +45,7 @@ public class SeSpildController implements Initializable {
 
     public ObservableList<Spild> getSpild() {
         ObservableList<Spild> spilds = FXCollections.observableArrayList();
-        ArrayList<Spild> databaseSpild = DatabaseHandler.getSpild();
+        ArrayList<Spild> databaseSpild = databaseHandler.getSpild();
 
         for (int i = 0; i < databaseSpild.size(); i++) {
             spilds.add(databaseSpild.get(i));

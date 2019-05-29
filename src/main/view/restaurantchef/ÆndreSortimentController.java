@@ -15,11 +15,13 @@ public class ÆndreSortimentController {
     @FXML
     private TextField varenavn;
 
+    private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
+
     @FXML
     void sletVare(javafx.event.ActionEvent event) {
         try {
 
-            if (DatabaseHandler.sletVare(varenavn.getText())) {
+            if (databaseHandler.sletVare(varenavn.getText())) {
                 varenavn.clear();
             }
         } catch (Exception e) {

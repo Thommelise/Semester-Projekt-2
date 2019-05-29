@@ -11,6 +11,7 @@ import main.varelager.Spild;
 import main.varelager.Vare;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,8 +19,9 @@ import static javafx.application.Application.launch;
 
 public class main {
 
-    public static void main(String[] args) {
-        /*launch();*/
+    public static void main(String[] args) throws IOException {
+        Application.launch(UI.class, args);
+
         /*Restaurantchef restaurantchef = new Restaurantchef("Morten","1818181818",19,"RC");
 
         System.out.println(restaurantchef.seSpild());*/
@@ -47,8 +49,8 @@ public class main {
 
         /*System.out.println(MedarbejderHandler.checkStilling(1));*/
 
-        DatabaseHandler.registrereSpild("agurk",5);
-        System.out.println(DatabaseHandler.getSpild());
+        /*DatabaseHandler.registrereSpild("agurk",5);
+        System.out.println(DatabaseHandler.getSpild());*/
     }
     }
 
