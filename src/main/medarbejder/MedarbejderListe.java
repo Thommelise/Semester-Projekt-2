@@ -19,7 +19,7 @@ public class MedarbejderListe {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "1234");
+                            "postgres", "sfp86nbb");
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();

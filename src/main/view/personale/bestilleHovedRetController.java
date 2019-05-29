@@ -1,6 +1,8 @@
 package main.view.personale;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import main.control.Client;
 import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,9 @@ public class bestilleHovedRetController {
 
     @FXML
     private Button burger;
+
+    @FXML
+    private TextField errorMessage;
 
     private BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
 
@@ -81,5 +86,29 @@ public class bestilleHovedRetController {
             e.printStackTrace();
         }}
 
+    @FXML
+    void tilbageBnt(javafx.event.ActionEvent event) {
 
+        if (Client.getStilling().equals("Kok")) {
+            try {
+                URL tilbageBnt = getClass().getResource("/main/view/kok/kok.fxml");
+                BorderPane kokSceen = FXMLLoader.load(tilbageBnt);
+                BorderPane borderPane = UI.getRoot();
+                borderPane.setCenter(kokSceen);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (Client.getStilling().equals("Chef")){
+            try {
+                URL tilbageBnt = getClass().getResource("/main/view/restaurantchef/RestaurantChef.fxml");
+                BorderPane restaurantchefSceen = FXMLLoader.load(tilbageBnt);
+                BorderPane borderPane = UI.getRoot();
+                borderPane.setCenter(restaurantchefSceen);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+                errorMessage.setText("Ingen tilladelse");
+        }
+    }
 }
