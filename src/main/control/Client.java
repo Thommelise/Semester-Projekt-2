@@ -22,7 +22,6 @@ public class Client {
             System.out.println("Where to?");
             String input = keyboard.next();
             outToServer.writeObject(input);
-
             ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
             String o = (String)inFromServer.readObject();
 

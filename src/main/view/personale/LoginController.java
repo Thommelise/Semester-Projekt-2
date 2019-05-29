@@ -1,13 +1,16 @@
 package main.view.personale;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import main.handler.MedarbejderHandler;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 
@@ -19,6 +22,9 @@ public class LoginController {
 
     @FXML
     private TextField errorMessage;
+
+    @FXML
+    private Button closeBtn;
 
     private MedarbejderHandler medarbejderHandler = MedarbejderHandler.initMedarbejderHandler();
 
@@ -65,4 +71,11 @@ public class LoginController {
                 errorMessage.setText("Skal være din id");
             }
         }
+
+    @FXML
+    void closeApp (javafx.event.ActionEvent event) {
+
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
+    }
 }

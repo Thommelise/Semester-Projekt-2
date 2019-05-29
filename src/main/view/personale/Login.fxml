@@ -13,7 +13,7 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09B903;" BorderPane.alignment="CENTER">
         <buttons>
-          <Button fx:id="Quit" mnemonicParsing="false" text="Quit" textFill="#09b903" />
+          <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#closeApp" onMouseClicked="#closeApp" text="Quit" textFill="#09b903" />
         </buttons>
       </ButtonBar>
    </bottom>
