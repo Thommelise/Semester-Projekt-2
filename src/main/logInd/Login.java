@@ -11,7 +11,7 @@ public class Login {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
+                            "postgres", "1234");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 

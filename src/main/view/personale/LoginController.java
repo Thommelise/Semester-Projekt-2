@@ -2,6 +2,7 @@ package main.view.personale;
 
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import main.control.Client;
 import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +32,9 @@ public class LoginController {
                 }
                 if (stilling.equals("Kok")) {
                     try {
+                        Client.setStilling("Kok");
                         URL kokBnt = getClass().getResource("/main/view/kok/Kok.fxml");
+                        System.out.println(Client.getStilling());
                         BorderPane kokSceen = FXMLLoader.load(kokBnt);
                         BorderPane borderPane = UI.getRoot();
                         borderPane.setCenter(kokSceen);
@@ -42,7 +45,9 @@ public class LoginController {
 
                 if (stilling.equals("Chef")) {
                     try {
+                        Client.setStilling("Chef");
                         URL restaurantChefBnt = getClass().getResource("/main/view/restaurantchef/RestaurantChef.fxml");
+                        System.out.println(Client.getStilling());
                         BorderPane restaurantChefSceen = FXMLLoader.load(restaurantChefBnt);
                         BorderPane borderPane = UI.getRoot();
                         borderPane.setCenter(restaurantChefSceen);
@@ -53,7 +58,9 @@ public class LoginController {
 
                 if (stilling.equals("Personale")) {
                     try {
+                        Client.setStilling("Personale");
                         URL personaleBnt = getClass().getResource("/main/view/personale/BestilleHovedRet.fxml");
+                        System.out.println(Client.getStilling());
                         BorderPane personaleSceen = FXMLLoader.load(personaleBnt);
                         BorderPane borderPane = UI.getRoot();
                         borderPane.setCenter(personaleSceen);

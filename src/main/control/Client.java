@@ -11,6 +11,7 @@ import static javafx.application.Application.launch;
 
 public class Client {
 
+    private static String stilling;
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
@@ -34,5 +35,15 @@ public class Client {
         } catch (Exception e) {
 
         }
+
+
+    }
+
+    public static String getStilling() {
+        return stilling;
+    }
+
+    public static void setStilling(String stilling) {
+        Client.stilling = stilling;
     }
 }
