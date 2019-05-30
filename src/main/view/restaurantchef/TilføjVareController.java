@@ -24,8 +24,8 @@ public class TilføjVareController {
     @FXML
     void tilføjVare(javafx.event.ActionEvent event) {
         try {
-            Vare vare = new Vare(varenavn.getText(),Integer.parseInt(antal.getText()),enhed.getText(),Integer.parseInt(pris.getText()));
-            if (databaseHandler.opretVare(vare)) {
+            Vare vare = new Vare(varenavn.getText(),enhed.getText(),Integer.parseInt(pris.getText()));
+            if (databaseHandler.opretVare(vare,Integer.parseInt(antal.getText()))) {
                 varenavn.clear();
                 antal.clear();
                 enhed.clear();

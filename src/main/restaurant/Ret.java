@@ -28,14 +28,7 @@ public class Ret {
         return menukort.findVare(retnavn);
     }
 
-    public ArrayList<Vare> vareObjekt () {
-        ArrayList<String> antalVare = fåVare(this.retnavn);
-        ArrayList<Vare> VareObjekter = new ArrayList<Vare>();
-        for (int i = 0; i < antalVare.size(); i++) {
-            VareObjekter.add(menukort.tilObjekt(antalVare.get(i)));
-        }
-        return VareObjekter;
-    }
+
 
     public ArrayList<String> test() {
         ArrayList<String> antalVare = fåVare(this.retnavn);

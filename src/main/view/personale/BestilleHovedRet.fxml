@@ -26,7 +26,7 @@
             <Button fx:id="drikkevare" mnemonicParsing="false" onAction="#bestilleDringBnt" onMouseClicked="#bestilleDringBnt" text="Drikke Vare" />
             <Button fx:id="tilbehørbnt" mnemonicParsing="false" onAction="#bestilleTilbehørBnt" onMouseClicked="#bestilleTilbehørBnt" text="Tilbehør" />
             <Button mnemonicParsing="false" onAction="#checkoutBnt" onMouseClicked="#checkoutBnt" text="Check Out" />
-          <Button fx:id="Logud" mnemonicParsing="false" text="Log ud" />
+          <Button fx:id="Logud" mnemonicParsing="false" onAction="#logudBnt" onMouseClicked="#logudBnt" text="Log ud" />
         </buttons>
       </ButtonBar>
    </bottom>

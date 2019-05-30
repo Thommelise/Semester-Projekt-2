@@ -23,9 +23,9 @@ public class DatabaseHandler {
         return lager.getSpild();
     }
 
-    public synchronized ArrayList<Vare> getVare(String vare) {
+    public synchronized void getVare(String vare) {
         Lager lager = new Lager();
-        return lager.hentVare(vare);
+        lager.hentVare(vare);
     }
 
     public synchronized void registrereSpild(String vare, int mængde) {
@@ -38,9 +38,9 @@ public class DatabaseHandler {
         lager.registrereBestilteVare(vare, mængde);
     }
 
-    public synchronized boolean opretVare(Vare vare) {
+    public synchronized boolean opretVare(Vare vare, int antal) {
         Lager lager = new Lager();
-        return lager.opretVare(vare);
+        return lager.opretVare(vare, antal);
     }
 
     public synchronized boolean sletVare(String vare) {

@@ -45,7 +45,7 @@ public class Lager {
         return spilds;
     }
 
-    public ArrayList hentVare(String fjernes) {
+    public void hentVare(String fjernes) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -56,21 +56,15 @@ public class Lager {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".vare;" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".lager;" );
             while ( rs.next() ) {
                 if (fjernes.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
-                    int antals = rs.getInt("antal");
-                    String enhed = rs.getString("enhed");
-                    int pris = rs.getInt("pris");
+                    int antal = rs.getInt("antal");
                     System.out.println( "varenavn = " + varenavne );
-                    System.out.println( "antal = " + antals );
-                    System.out.println( "enhed = " + enhed );
-                    System.out.println( "pris = " + pris );
-                    Vare vare = new Vare(varenavne, antals, enhed, pris);
-                    varer.add(vare);
+                    System.out.println( "pris = " + antal );
                     stmt = c.createStatement();
-                    String sql = "UPDATE \"varelager\".vare set antal = antal - 1 where varenavn = '"+varenavne+"';";
+                    String sql = "UPDATE \"varelager\".lager set antal = antal -  where varenavn = '"+varenavne+"';";
                     stmt.executeUpdate(sql);
                     System.out.println(rs.getInt("antal"));
                 }
@@ -80,7 +74,6 @@ public class Lager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return varer;
     }
 
     public void registrereSpild(String vare, int mængde) {
@@ -147,7 +140,7 @@ public class Lager {
         }
     }
 
-    public boolean opretVare(Vare vare) {
+    public boolean opretVare(Vare vare, int antal) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -157,8 +150,10 @@ public class Lager {
                             "postgres", "sfp86nbb");
             System.out.println("Opened database successfully");
                     stmt = c.createStatement();
-                    String sql = "insert into \"varelager\".vare values ('"+vare.getVarenavn()+"','"+vare.getAntal()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
+                    String sql = "insert into \"varelager\".fødevare values ('"+vare.getVarenavn()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
+                    String sql1 = "insert into \"varelager\".lager values ('"+vare.getVarenavn()+"','"+antal+"');";
                     stmt.executeUpdate(sql);
+                    stmt.executeUpdate(sql1);
                     return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

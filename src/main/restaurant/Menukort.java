@@ -7,11 +7,16 @@ import java.util.ArrayList;
 
 public class Menukort {
 
-    private ArrayList<Ret> hovederet;
-    private ArrayList<Ret> sideOrdre;
-    private ArrayList<Ret> drink;
+    private static Menukort menukort = null;
 
     public Menukort() {
+    }
+
+    public static Menukort menu(){
+        if(menukort == null) {
+            menukort = new Menukort();
+        }
+        return menukort;
     }
 
     public ArrayList<String> findVare(String retnavn) {
@@ -42,7 +47,7 @@ public class Menukort {
         return vareListe;
     }
 
-    public Vare tilObjekt(String vare) {
+    /*public Vare tilObjekt(String vare) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -74,6 +79,6 @@ public class Menukort {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 }
 

@@ -1,24 +1,33 @@
-/*
+
 package main.view.personale;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import main.control.UI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+import main.handler.BestillingHandler;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class bestilleTilbehørController {
 
+    @FXML
+    private Button OnionRings;
 
-    KnappeController knapper;
+    private BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
 
-    public void logud () {
-
-        knapper.logudBnt(ActionEvent);
+    @FXML
+    void OnionRings (javafx.event.ActionEvent event) {
+        try {
+            bestillingHandler.tilføjRet(OnionRings.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     void bestilleDringBnt (javafx.event.ActionEvent event) {
@@ -62,5 +71,18 @@ public class bestilleTilbehørController {
             e.printStackTrace();
         }}
 
+    @FXML
+    void logudBnt (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL logudBnt = getClass().getResource("/main/view/personale/Login.fxml");
+            BorderPane loginSceen = FXMLLoader.load(logudBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(loginSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
 }
-*/
+
