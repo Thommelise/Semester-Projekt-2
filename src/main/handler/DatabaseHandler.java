@@ -23,9 +23,9 @@ public class DatabaseHandler {
         return lager.getSpild();
     }
 
-    public synchronized void getVare(String vare) {
+    public synchronized void getVare(String vare, double antal) {
         Lager lager = new Lager();
-        lager.hentVare(vare);
+        lager.hentVare(vare,antal);
     }
 
     public synchronized void registrereSpild(String vare, int mængde) {

@@ -45,7 +45,7 @@ public class Lager {
         return spilds;
     }
 
-    public void hentVare(String fjernes) {
+    public void hentVare(String fjernes, double antal) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -60,11 +60,10 @@ public class Lager {
             while ( rs.next() ) {
                 if (fjernes.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
-                    int antal = rs.getInt("antal");
                     System.out.println( "varenavn = " + varenavne );
-                    System.out.println( "pris = " + antal );
+                    System.out.println( "antal = " + antal );
                     stmt = c.createStatement();
-                    String sql = "UPDATE \"varelager\".lager set antal = antal -  where varenavn = '"+varenavne+"';";
+                    String sql = "UPDATE \"varelager\".lager set antal = antal - '"+antal+"' where varenavn = '"+varenavne+"';";
                     stmt.executeUpdate(sql);
                     System.out.println(rs.getInt("antal"));
                 }

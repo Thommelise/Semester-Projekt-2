@@ -1,7 +1,5 @@
 package main.restaurant;
 
-import main.varelager.Vare;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -28,7 +26,6 @@ public class Menukort {
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
                             "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".ret join \"varelager\".indeholder i on ret.navn = i.Retnavn;" );
@@ -47,30 +44,22 @@ public class Menukort {
         return vareListe;
     }
 
-    /*public Vare tilObjekt(String vare) {
+    public double findAntal(String retnavn) {
         Connection c = null;
         Statement stmt = null;
+        double antal = 0.0;
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
                             "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".vare;" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".indeholder;" );
             while ( rs.next() ) {
-                if (vare.equals(rs.getString("varenavn"))) {
-                    String varenavne = rs.getString("varenavn");
-                    int antals = rs.getInt("antal");
-                    String enhed = rs.getString("enhed");
-                    int pris = rs.getInt("pris");
-                    System.out.println( "varenavn = " + varenavne );
-                    System.out.println( "antal = " + antals );
-                    System.out.println( "enhed = " + enhed );
-                    System.out.println( "pris = " + pris );
-                    Vare varer = new Vare(varenavne, antals, enhed, pris);
-                    return varer;
+                if (retnavn.equals(rs.getString("Varenavn"))) {
+                    antal = rs.getDouble("antal");
+
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -78,7 +67,7 @@ public class Menukort {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
-    }*/
+        return antal;
+    }
 }
 

@@ -82,7 +82,7 @@ public class CheckOutController {
             for (int i = 0; i < bestillingHandler.ret.size(); i++) {
                 ingredienser = menukort.findVare(bestillingHandler.ret.get(i));
                 for (int j = 0; j < ingredienser.size(); j++) {
-                    databaseHandler.getVare(ingredienser.get(j));
+                    databaseHandler.getVare(ingredienser.get(j),menukort.findAntal(ingredienser.get(j)));
                 }
             }
 
