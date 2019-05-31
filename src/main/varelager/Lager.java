@@ -45,6 +45,33 @@ public class Lager {
         return spilds;
     }
 
+    public double seVare(String vare) {
+        double antal = 0.0;
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".lager;" );
+            while ( rs.next() ) {
+                if (vare.equals(rs.getString("varenavn"))) {
+                    String varenavne = rs.getString("varenavn");
+                    antal = rs.getDouble("antal");
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return antal;
+    }
+
     public void hentVare(String fjernes, double antal) {
         Connection c = null;
         Statement stmt = null;
@@ -119,7 +146,7 @@ public class Lager {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".vare;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".lager;");
             while (rs.next()) {
                 if (vare.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
@@ -127,9 +154,8 @@ public class Lager {
                     System.out.println("varenavn = " + varenavne);
                     System.out.println("antal = " + antals);
                     stmt = c.createStatement();
-                    String sql0 = "UPDATE \"varelager\".vare set antal = antal + '" + mængde + "' where varenavn = '" + varenavne + "';";
+                    String sql0 = "UPDATE \"varelager\".lager set antal = antal + '" + mængde + "' where varenavn = '" + varenavne + "';";
                     stmt.executeUpdate(sql0);
-                    System.out.println(rs.getInt("antal"));
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -172,7 +198,7 @@ public class Lager {
                             "postgres", "sfp86nbb");
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
-            String sql = "delete from \"varelager\".vare where varenavn = '"+vare+"';";
+            String sql = "delete from \"varelager\".lager where varenavn = '"+vare+"';";
             stmt.executeUpdate(sql);
             return true;
         } catch (ClassNotFoundException e) {
@@ -180,7 +206,7 @@ public class Lager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return false;
     }
 }
