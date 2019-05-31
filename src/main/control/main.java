@@ -1,19 +1,8 @@
 package main.control;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
-import main.handler.DatabaseHandler;
-import main.handler.MedarbejderHandler;
-import main.medarbejder.Restaurantchef;
-import main.restaurant.Menukort;
-import main.varelager.Lager;
-import main.varelager.Spild;
-import main.varelager.Vare;
 
-import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static javafx.application.Application.launch;
 
