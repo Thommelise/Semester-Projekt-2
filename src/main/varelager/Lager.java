@@ -23,7 +23,7 @@ public class Lager {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "1234");
+                            "postgres", "sfp86nbb");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 

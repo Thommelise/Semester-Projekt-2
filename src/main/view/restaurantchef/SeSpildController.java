@@ -27,12 +27,6 @@ public class SeSpildController implements Initializable {
     private TableColumn<Spild, Integer> Antal;
 
 
-
-    @FXML
-    void insetSpild() {
-
-    }
-
     DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
 
     @Override
