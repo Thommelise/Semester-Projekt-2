@@ -120,7 +120,7 @@ public class Lager {
                 while (rs.next()) {
                     if (vare.equals(rs.getString("varenavn"))) {
 
-                        String sql = "UPDATE \"varelager\".vare set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
+                        String sql = "UPDATE \"varelager\".lager set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
                         sql0 = "UPDATE \"varelager\".spild set antal = antal + '" + mængde + "' where varenavn = '" + vare + "';";
                         stmt.executeUpdate(sql);
                         break;
@@ -135,6 +135,7 @@ public class Lager {
             }
         }
     }
+
     public void registrereBestilteVare(String vare, int mængde) {
         Connection c = null;
         Statement stmt = null;
