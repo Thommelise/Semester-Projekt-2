@@ -10,6 +10,7 @@ public class Menukort {
     public Menukort() {
     }
 
+    //Singleton pattern
     public static Menukort menu(){
         if(menukort == null) {
             menukort = new Menukort();
@@ -17,6 +18,7 @@ public class Menukort {
         return menukort;
     }
 
+    //Denne metode finde de vare en ret består af
     public ArrayList<String> findVare(String retnavn) {
         Connection c = null;
         Statement stmt = null;
@@ -44,6 +46,7 @@ public class Menukort {
         return vareListe;
     }
 
+    //Finder antal
     public double findAntal(String retnavn) {
         Connection c = null;
         Statement stmt = null;
