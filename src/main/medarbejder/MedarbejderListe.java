@@ -7,22 +7,15 @@ public class MedarbejderListe {
 
 
     private ArrayList<Ansat> medarbejder = new ArrayList<Ansat>();
-    /**/
+    Connection c = null;
+    Statement stmt = null;
     public MedarbejderListe() {
 
     }
     //Denne metode henter en liste med alle medarbejdere som obejekter
     public ArrayList seMearbejder() {
-        Connection c = null;
-        Statement stmt = null;
         try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
-            System.out.println("Opened database successfully");
-
-            stmt = c.createStatement();
+            openDatabase();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".medarbejder;" );
             while ( rs.next() ) {
                 String navn = rs.getString("navn");
@@ -39,10 +32,20 @@ public class MedarbejderListe {
         }
         return medarbejder;
     }
+
+    private void openDatabase() throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        c = DriverManager
+                .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                        "postgres", "sfp86nbb");
+        System.out.println("Opened database successfully");
+
+        stmt = c.createStatement();
+    }
+
     //denne metode henter en enkel medarbejder ud som et ansat objekt
     public Ansat seEnkelMearbejder(String forspørgelse) {
-        Connection c = null;
-        Statement stmt = null;
+
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
@@ -77,16 +80,9 @@ public class MedarbejderListe {
     //Denne metode laver en ny medarbejder. Hvis det fejler returnes der en false så GUI'en kan opdateres
     public boolean opretMedarbejder(Ansat ansat) {
         if (ansat != null) {
-            Connection c = null;
-            Statement stmt = null;
-            try {
-                Class.forName("org.postgresql.Driver");
-                c = DriverManager
-                        .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                                "postgres", "sfp86nbb");
-                System.out.println("Opened database successfully");
 
-                stmt = c.createStatement();
+            try {
+                openDatabase();
                 stmt = c.createStatement();
                 String sql0 = "insert into \"varelager\".medarbejder values ('" + ansat.getNavn() + "','" + ansat.getCpr() + "','" + ansat.getId() + "','" + ansat.getStilling() + "');";
                 stmt.executeUpdate(sql0);
@@ -105,8 +101,6 @@ public class MedarbejderListe {
     //Denne metode sletter en medarbejder. Hvis det er et ugyldigt cpr returneres den false og GUI'en opdateres
     public boolean sletMedarbejder(String cpr) {
         if (cpr.matches("[a-zA-Z]+") == false && cpr.length() == 10) {
-            Connection c = null;
-            Statement stmt = null;
             try {
                 Class.forName("org.postgresql.Driver");
                 c = DriverManager
