@@ -11,7 +11,7 @@ public class MedarbejderListe {
     public MedarbejderListe() {
 
     }
-
+    //Denne metode henter en liste med alle medarbejdere som obejekter
     public ArrayList seMearbejder() {
         Connection c = null;
         Statement stmt = null;
@@ -29,10 +29,6 @@ public class MedarbejderListe {
                 String cpr = rs.getString("cpr");
                 int id = rs.getInt("id");
                 String stilling = rs.getString("Stilling");
-                /*System.out.println( "navn = " + navn );
-                System.out.println( "cpr = " + cpr );
-                System.out.println( "id = " + id );
-                System.out.println( "stilling = " + stilling );*/
                 Ansat ansat = new Ansat(navn, cpr, id, stilling);
                 medarbejder.add(ansat);
             }
@@ -43,7 +39,7 @@ public class MedarbejderListe {
         }
         return medarbejder;
     }
-
+    //denne metode henter en enkel medarbejder ud som et ansat objekt
     public Ansat seEnkelMearbejder(String forspørgelse) {
         Connection c = null;
         Statement stmt = null;
@@ -78,6 +74,7 @@ public class MedarbejderListe {
         return null;
     }
 
+    //Denne metode laver en ny medarbejder. Hvis det fejler returnes der en false så GUI'en kan opdateres
     public boolean opretMedarbejder(Ansat ansat) {
         if (ansat != null) {
             Connection c = null;
@@ -105,6 +102,7 @@ public class MedarbejderListe {
         return false;
     }
 
+    //Denne metode sletter en medarbejder. Hvis det er et ugyldigt cpr returneres den false og GUI'en opdateres
     public boolean sletMedarbejder(String cpr) {
         if (cpr.matches("[a-zA-Z]+") == false && cpr.length() == 10) {
             Connection c = null;

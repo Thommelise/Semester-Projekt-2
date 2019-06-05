@@ -15,20 +15,10 @@ public class Server {
             ServerSocket welcomeSocket = new ServerSocket(2910);
 
             while (true) {
+                //Venter på clienter
                 Socket socket = welcomeSocket.accept();
                 System.out.println("Client connected");
 
-                ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
-                ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
-                String o = (String)inFromClient.readObject();
-                System.out.println("recieved: " + o);
-
-                /*if (o.equals("bestil")){
-                    outToClient.writeObject("What item?");
-                    o = (String)inFromClient.readObject();
-                    Bestilling bestilling = new Bestilling(o);
-                    bestilling.lavBestilling();
-                }*/
 
             }
         } catch (Exception e) {
