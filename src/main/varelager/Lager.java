@@ -12,27 +12,22 @@ public class Lager {
 
     private ArrayList<Vare> varer = new ArrayList<Vare>();
     private ArrayList<Spild> spilds = new ArrayList<Spild>();
-    Connection c = null;
-    Statement stmt = null;
 
     public Lager() {
     }
-
-    private void openDatabase() throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
-        c = DriverManager
-                .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                        "postgres", "sfp86nbb");
-        c.setAutoCommit(false);
-        System.out.println("Opened database successfully");
-
-        stmt = c.createStatement();
-    }
-
-//denne metode henter spild tablen fra databasen og gemmer den i en arrayliste
+    //denne metode henter spild tablen fra databasen og gemmer den i en arrayliste
     public ArrayList getSpild() {
+        Connection c = null;
+        Statement stmt = null;
         try {
-            openDatabase();
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
             //her bliver tabellen hentet
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".spild;" );
             //Dette loop laver et spild objekt for hver eneste linje i tabellen
@@ -52,13 +47,19 @@ public class Lager {
         return spilds;
     }
 
-
-
     //Denne metode viser hvor mange af varen der er på lager
     public double seVare(String vare) {
         double antal = 0.0;
+        Connection c = null;
+        Statement stmt = null;
         try {
-       openDatabase();
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".lager;" );
             //Dette loop kigger tabellen igennem. Hvis der er et match gemmer den det tal der står i antal columnen
             while ( rs.next() ) {
@@ -78,8 +79,16 @@ public class Lager {
 
     //Denne metode fjerner en mængde af en vare fra lager tabellen
     public void hentVare(String fjernes, double antal) {
+        Connection c = null;
+        Statement stmt = null;
         try {
-            openDatabase();
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".lager;" );
             while ( rs.next() ) {
                 if (fjernes.equals(rs.getString("varenavn"))) {
@@ -101,9 +110,18 @@ public class Lager {
 
     //Denne metode laver en ny linje mi spild tabellen med mindre varen allerede findes, for så updaterer metode en linje i stedet.
     public void registrereSpild(String vare, int mængde) {
-        if (vare.matches("[a-zA-Z]+") == true) {
+        if (vare.matches("[ a-zA-Z]+") == true) {
+            Connection c = null;
+            Statement stmt = null;
+            System.out.println(vare);
             try {
-                openDatabase();
+                Class.forName("org.postgresql.Driver");
+                c = DriverManager
+                        .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                                "postgres", "sfp86nbb");
+                System.out.println("Opened database successfully - registrere spild");
+
+                stmt = c.createStatement();
 
                 ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".spild;");
                 //Denne sql kode bliver kun kørt hvis metode ikke går ind i while loops if sætning.
@@ -128,9 +146,16 @@ public class Lager {
     }
     // Denne metode updater lager tabellen med en bestemt mængde
     public void registrereBestilteVare(String vare, int mængde) {
-
+        Connection c = null;
+        Statement stmt = null;
         try {
-          openDatabase();
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".lager;");
             while (rs.next()) {
                 if (vare.equals(rs.getString("varenavn"))) {
@@ -151,15 +176,20 @@ public class Lager {
     }
     //Denne metode laver en ny fødevare og en ny vare i lageret
     public boolean opretVare(Vare vare, int antal) {
-
+        Connection c = null;
+        Statement stmt = null;
         try {
-           openDatabase();
-
-                    String sql = "insert into \"varelager\".fødevare values ('"+vare.getVarenavn()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
-                    String sql1 = "insert into \"varelager\".lager values ('"+vare.getVarenavn()+"','"+antal+"');";
-                    stmt.executeUpdate(sql);
-                    stmt.executeUpdate(sql1);
-                    return true;
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+            stmt = c.createStatement();
+            String sql = "insert into \"varelager\".fødevare values ('"+vare.getVarenavn()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
+            String sql1 = "insert into \"varelager\".lager values ('"+vare.getVarenavn()+"','"+antal+"');";
+            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sql1);
+            return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -169,9 +199,15 @@ public class Lager {
     }
     //Denne metode sletter en vare fra lageret.
     public boolean sletVare(String vare) {
-
+        Connection c = null;
+        Statement stmt = null;
         try {
-            openDatabase();
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+            stmt = c.createStatement();
             String sql = "delete from \"varelager\".lager where varenavn = '"+vare+"';";
             stmt.executeUpdate(sql);
             return true;

@@ -2,10 +2,8 @@ package main.control;
 
 import javafx.application.Application;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.Scanner;
+
 
 import static javafx.application.Application.launch;
 
