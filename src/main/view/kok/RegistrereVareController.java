@@ -7,10 +7,7 @@ import main.control.Client;
 import main.control.UI;
 import main.handler.DatabaseHandler;
 import javafx.scene.control.TextField;
-import main.varelager.Vare;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 

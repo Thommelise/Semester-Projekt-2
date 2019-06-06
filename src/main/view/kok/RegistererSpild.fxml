@@ -29,7 +29,7 @@
       </Pane>
    </top>
    <bottom>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #09B903;" BorderPane.alignment="CENTER">
         <buttons>
           <Button fx:id="tilbage" mnemonicParsing="false" onAction="#tilbageBnt" onMouseClicked="#tilbageBnt" text="Tilbage" textFill="#09b903" />
         </buttons>

@@ -35,7 +35,6 @@ public class RegistrereSpildController {
 
     @FXML
     void tilbageBnt (javafx.event.ActionEvent event) {
-
         if (Client.getStilling().equals("Kok")) {
             try {
                 URL tilbageBnt = getClass().getResource("/main/view/kok/kok.fxml");
