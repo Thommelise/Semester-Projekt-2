@@ -6,10 +6,13 @@ import java.util.ArrayList;
 public class Menukort {
 
     private static Menukort menukort = null;
+    Connection c = null;
+    Statement stmt = null;
 
     public Menukort() {
     }
 
+    //Singleton pattern
     public static Menukort menu(){
         if(menukort == null) {
             menukort = new Menukort();
@@ -17,17 +20,22 @@ public class Menukort {
         return menukort;
     }
 
+    //Åbner databasen
+    private void openDatabase() throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        c = DriverManager
+                .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                        "postgres", "sfp86nbb");
+
+        stmt = c.createStatement();
+    }
+
+    //Denne metode finde de vare en ret består af
     public ArrayList<String> findVare(String retnavn) {
-        Connection c = null;
-        Statement stmt = null;
+
         ArrayList<String> vareListe = new ArrayList<String>();
         try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
-
-            stmt = c.createStatement();
+            openDatabase();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".ret join \"varelager\".indeholder i on ret.navn = i.Retnavn;" );
             while ( rs.next() ) {
                 if (retnavn.equals(rs.getString("navn"))) {
@@ -44,17 +52,14 @@ public class Menukort {
         return vareListe;
     }
 
+
+
+    //Finder antal
     public double findAntal(String retnavn) {
-        Connection c = null;
-        Statement stmt = null;
+
         double antal = 0.0;
         try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "sfp86nbb");
-
-            stmt = c.createStatement();
+            openDatabase();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".indeholder;" );
             while ( rs.next() ) {
                 if (retnavn.equals(rs.getString("Varenavn"))) {

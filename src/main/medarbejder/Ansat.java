@@ -17,10 +17,6 @@ public class Ansat {
         this.stilling = stilling;
     }
 
-    public void bestilRet(String drink, String sideOrdre, String hovederet) {
-
-    }
-
     public String getNavn() {
         return navn;
     }

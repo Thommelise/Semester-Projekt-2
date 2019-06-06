@@ -23,10 +23,10 @@ public class CheckOutController {
     private TextArea kvittering;
 
     private DatabaseHandler databaseHandler = DatabaseHandler.initDatabaseHandler();
+    private BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
 
     @FXML
     void initialize(){
-        BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
         kvittering.setText(bestillingHandler.getRet().toString());
     }
 
@@ -76,7 +76,6 @@ public class CheckOutController {
     void bekæftBestilling (javafx.event.ActionEvent event) {
 
         try {
-            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
             Menukort menukort = new Menukort();
             ArrayList<String> ingredienser = new ArrayList<>();
             for (int i = 0; i < bestillingHandler.ret.size(); i++) {
@@ -98,7 +97,6 @@ public class CheckOutController {
     void sletBestilling (javafx.event.ActionEvent event) {
 
         try {
-            BestillingHandler bestillingHandler = BestillingHandler.bestilMad();
             bestillingHandler.sletRet();
             kvittering.clear();
         }

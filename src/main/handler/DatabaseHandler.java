@@ -23,6 +23,11 @@ public class DatabaseHandler {
         return lager.getSpild();
     }
 
+    public synchronized double seVare(String vare) {
+        Lager lager = new Lager();
+        return lager.seVare(vare);
+    }
+
     public synchronized void getVare(String vare, double antal) {
         Lager lager = new Lager();
         lager.hentVare(vare,antal);

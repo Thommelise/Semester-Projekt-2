@@ -15,7 +15,7 @@ public class Lager {
 
     public Lager() {
     }
-
+    //denne metode henter spild tablen fra databasen og gemmer den i en arrayliste
     public ArrayList getSpild() {
         Connection c = null;
         Statement stmt = null;
@@ -23,12 +23,14 @@ public class Lager {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "1234");
+                            "postgres", "sfp86nbb");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
+            //her bliver tabellen hentet
             ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".spild;" );
+            //Dette loop laver et spild objekt for hver eneste linje i tabellen
             while ( rs.next() ) {
                 String varenavn = rs.getString("varenavn");
                 int antal = rs.getInt("antal");
@@ -45,6 +47,37 @@ public class Lager {
         return spilds;
     }
 
+    //Denne metode viser hvor mange af varen der er på lager
+    public double seVare(String vare) {
+        double antal = 0.0;
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "sfp86nbb");
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM \"varelager\".lager;" );
+            //Dette loop kigger tabellen igennem. Hvis der er et match gemmer den det tal der står i antal columnen
+            while ( rs.next() ) {
+                if (vare.equals(rs.getString("varenavn"))) {
+                    String varenavne = rs.getString("varenavn");
+                    antal = rs.getDouble("antal");
+                    return antal;
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return antal;
+    }
+
+    //Denne metode fjerner en mængde af en vare fra lager tabellen
     public void hentVare(String fjernes, double antal) {
         Connection c = null;
         Statement stmt = null;
@@ -65,7 +98,7 @@ public class Lager {
                     stmt = c.createStatement();
                     String sql = "UPDATE \"varelager\".lager set antal = antal - '"+antal+"' where varenavn = '"+varenavne+"';";
                     stmt.executeUpdate(sql);
-                    System.out.println(rs.getInt("antal"));
+                    System.out.println("Fjernet " + antal + "fra " + fjernes);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -75,10 +108,12 @@ public class Lager {
         }
     }
 
+    //Denne metode laver en ny linje mi spild tabellen med mindre varen allerede findes, for så updaterer metode en linje i stedet.
     public void registrereSpild(String vare, int mængde) {
-        if (vare.matches("[a-zA-Z]+") == true) {
+        if (vare.matches("[ a-zA-Z]+") == true) {
             Connection c = null;
             Statement stmt = null;
+            System.out.println(vare);
             try {
                 Class.forName("org.postgresql.Driver");
                 c = DriverManager
@@ -89,11 +124,12 @@ public class Lager {
                 stmt = c.createStatement();
 
                 ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".spild;");
+                //Denne sql kode bliver kun kørt hvis metode ikke går ind i while loops if sætning.
                 String sql0 = "INSERT INTO \"varelager\".spild VALUES ('" + vare + "', '" + mængde + "');";
                 while (rs.next()) {
                     if (vare.equals(rs.getString("varenavn"))) {
-
-                        String sql = "UPDATE \"varelager\".vare set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
+                        //Hvis varen allerede findes i tabellen ændres insert til update
+                        String sql = "UPDATE \"varelager\".lager set antal = antal - '" + mængde + "' where varenavn = '" + vare + "';";
                         sql0 = "UPDATE \"varelager\".spild set antal = antal + '" + mængde + "' where varenavn = '" + vare + "';";
                         stmt.executeUpdate(sql);
                         break;
@@ -108,6 +144,7 @@ public class Lager {
             }
         }
     }
+    // Denne metode updater lager tabellen med en bestemt mængde
     public void registrereBestilteVare(String vare, int mængde) {
         Connection c = null;
         Statement stmt = null;
@@ -119,7 +156,7 @@ public class Lager {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".vare;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM \"varelager\".lager;");
             while (rs.next()) {
                 if (vare.equals(rs.getString("varenavn"))) {
                     String varenavne = rs.getString("varenavn");
@@ -127,9 +164,8 @@ public class Lager {
                     System.out.println("varenavn = " + varenavne);
                     System.out.println("antal = " + antals);
                     stmt = c.createStatement();
-                    String sql0 = "UPDATE \"varelager\".vare set antal = antal + '" + mængde + "' where varenavn = '" + varenavne + "';";
+                    String sql0 = "UPDATE \"varelager\".lager set antal = antal + '" + mængde + "' where varenavn = '" + varenavne + "';";
                     stmt.executeUpdate(sql0);
-                    System.out.println(rs.getInt("antal"));
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -138,7 +174,7 @@ public class Lager {
             e.printStackTrace();
         }
     }
-
+    //Denne metode laver en ny fødevare og en ny vare i lageret
     public boolean opretVare(Vare vare, int antal) {
         Connection c = null;
         Statement stmt = null;
@@ -148,12 +184,12 @@ public class Lager {
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
                             "postgres", "sfp86nbb");
             System.out.println("Opened database successfully");
-                    stmt = c.createStatement();
-                    String sql = "insert into \"varelager\".fødevare values ('"+vare.getVarenavn()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
-                    String sql1 = "insert into \"varelager\".lager values ('"+vare.getVarenavn()+"','"+antal+"');";
-                    stmt.executeUpdate(sql);
-                    stmt.executeUpdate(sql1);
-                    return true;
+            stmt = c.createStatement();
+            String sql = "insert into \"varelager\".fødevare values ('"+vare.getVarenavn()+"','"+vare.getEnhed()+"','"+vare.getPris()+"');";
+            String sql1 = "insert into \"varelager\".lager values ('"+vare.getVarenavn()+"','"+antal+"');";
+            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sql1);
+            return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -161,7 +197,7 @@ public class Lager {
         }
         return false;
     }
-
+    //Denne metode sletter en vare fra lageret.
     public boolean sletVare(String vare) {
         Connection c = null;
         Statement stmt = null;
@@ -172,7 +208,7 @@ public class Lager {
                             "postgres", "sfp86nbb");
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
-            String sql = "delete from \"varelager\".vare where varenavn = '"+vare+"';";
+            String sql = "delete from \"varelager\".lager where varenavn = '"+vare+"';";
             stmt.executeUpdate(sql);
             return true;
         } catch (ClassNotFoundException e) {
@@ -180,6 +216,7 @@ public class Lager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return false;
     }
 }
