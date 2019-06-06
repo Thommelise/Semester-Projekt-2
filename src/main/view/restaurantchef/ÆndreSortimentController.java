@@ -42,4 +42,19 @@ public class ÆndreSortimentController {
         catch (IOException e) {
             e.printStackTrace();
         }}
+
+
+    @FXML
+    void tilbageBnt (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL tilbageBnt = getClass().getResource("/main/view/restaurantchef/RestaurantChef.fxml");
+            BorderPane kokSceen = FXMLLoader.load(tilbageBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(kokSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
 }

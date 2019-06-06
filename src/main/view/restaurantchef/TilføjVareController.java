@@ -1,9 +1,15 @@
 package main.view.restaurantchef;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import main.control.UI;
 import main.handler.DatabaseHandler;
 import main.varelager.Vare;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class TilføjVareController {
 
@@ -38,4 +44,20 @@ public class TilføjVareController {
             pris.setText("skal være tal");
         }
     }
+
+
+    @FXML
+    void tilbageBnt (javafx.event.ActionEvent event) {
+
+        try{
+
+            URL tilbageBnt = getClass().getResource("/main/view/restaurantchef/RestaurantChef.fxml");
+            BorderPane kokSceen = FXMLLoader.load(tilbageBnt);
+            BorderPane borderPane = UI.getRoot();
+            borderPane.setCenter(kokSceen);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }}
 }
+
